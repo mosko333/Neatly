@@ -24,7 +24,7 @@
 		7E9EE90320E1811B00F1CD79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9EE90220E1811B00F1CD79 /* AppDelegate.swift */; };
 		7E9EE96A20E3119D00F1CD79 /* CustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9EE96920E3119D00F1CD79 /* CustomTabBarViewController.swift */; };
 		7E9EE96E20E317AD00F1CD79 /* CustomTabBarMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9EE96D20E317AD00F1CD79 /* CustomTabBarMainView.swift */; };
-		7EADE38D20FE60020023215C /* BlackTabScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EADE38C20FE60020023215C /* BlackTabScreen.storyboard */; };
+		7EADE38D20FE60020023215C /* BlankTabScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EADE38C20FE60020023215C /* BlankTabScreen.storyboard */; };
 		7EADE38F20FE63AC0023215C /* StartCheckScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EADE38E20FE63AC0023215C /* StartCheckScreen.storyboard */; };
 		7EADE39120FE64540023215C /* StartCheckScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EADE39020FE64540023215C /* StartCheckScreenViewController.swift */; };
 		7EBCE29F21014BE20031A9CC /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBCE29E21014BE20031A9CC /* HeaderTableViewCell.swift */; };
@@ -48,7 +48,6 @@
 		F713F09420F534B50014D505 /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F713F09320F534B50014D505 /* Category.storyboard */; };
 		F713F09820F534F40014D505 /* MyStuff.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F713F09720F534F40014D505 /* MyStuff.storyboard */; };
 		F713F09C20F53D010014D505 /* AddItem.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F713F09B20F53D000014D505 /* AddItem.storyboard */; };
-		F713F0A220F53FC20014D505 /* CameraCropPreview.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F713F0A120F53FC20014D505 /* CameraCropPreview.storyboard */; };
 		F731E97220F2FD8900ACE318 /* FavCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F731E97120F2FD8900ACE318 /* FavCategoryCell.swift */; };
 		F731E97420F2FDA200ACE318 /* FavItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F731E97320F2FDA200ACE318 /* FavItemCell.swift */; };
 		F731E97720F2FEE100ACE318 /* HomeScreenCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F731E97620F2FEE100ACE318 /* HomeScreenCategoryCell.swift */; };
@@ -111,7 +110,7 @@
 		7E9EE90E20E1811C00F1CD79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E9EE96920E3119D00F1CD79 /* CustomTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewController.swift; sourceTree = "<group>"; };
 		7E9EE96D20E317AD00F1CD79 /* CustomTabBarMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarMainView.swift; sourceTree = "<group>"; };
-		7EADE38C20FE60020023215C /* BlackTabScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BlackTabScreen.storyboard; sourceTree = "<group>"; };
+		7EADE38C20FE60020023215C /* BlankTabScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BlankTabScreen.storyboard; sourceTree = "<group>"; };
 		7EADE38E20FE63AC0023215C /* StartCheckScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StartCheckScreen.storyboard; sourceTree = "<group>"; };
 		7EADE39020FE64540023215C /* StartCheckScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartCheckScreenViewController.swift; sourceTree = "<group>"; };
 		7EBCE29E21014BE20031A9CC /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
@@ -135,7 +134,6 @@
 		F713F09320F534B50014D505 /* Category.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Category.storyboard; sourceTree = "<group>"; };
 		F713F09720F534F40014D505 /* MyStuff.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyStuff.storyboard; sourceTree = "<group>"; };
 		F713F09B20F53D000014D505 /* AddItem.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddItem.storyboard; sourceTree = "<group>"; };
-		F713F0A120F53FC20014D505 /* CameraCropPreview.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CameraCropPreview.storyboard; sourceTree = "<group>"; };
 		F731E97120F2FD8900ACE318 /* FavCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavCategoryCell.swift; sourceTree = "<group>"; };
 		F731E97320F2FDA200ACE318 /* FavItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavItemCell.swift; sourceTree = "<group>"; };
 		F731E97620F2FEE100ACE318 /* HomeScreenCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreenCategoryCell.swift; sourceTree = "<group>"; };
@@ -187,6 +185,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E0F580D2138AAB100F15B4A /* Old Storyboard Setup */ = {
+			isa = PBXGroup;
+			children = (
+				7EADE38E20FE63AC0023215C /* StartCheckScreen.storyboard */,
+				17A46CA420FD2DAA008E9322 /* Onboarding.storyboard */,
+				F713F09320F534B50014D505 /* Category.storyboard */,
+				F713F09720F534F40014D505 /* MyStuff.storyboard */,
+				F713F08720F531880014D505 /* FavoriteItems.storyboard */,
+				F7789D192108E13400ED22FE /* ItemDetail.storyboard */,
+				7EADE38C20FE60020023215C /* BlankTabScreen.storyboard */,
+				F713F09B20F53D000014D505 /* AddItem.storyboard */,
+				F713F08D20F532980014D505 /* CameraPreview.storyboard */,
+				F713F08F20F5344B0014D505 /* AddCategory.storyboard */,
+				7E19044120EC7BCA004DBE2D /* CameraCrop.storyboard */,
+				F713F08920F531D00014D505 /* SearchItems.storyboard */,
+				7EFC781D20F5774B0096238A /* Dashboard.storyboard */,
+				7EFC782F20F5814B0096238A /* Settings.storyboard */,
+				F770EE9420FFD3160031CFE3 /* Currency.storyboard */,
+				7EFC783120F581630096238A /* PinPad.storyboard */,
+			);
+			path = "Old Storyboard Setup";
+			sourceTree = "<group>";
+		};
 		7E19043C20EC7AAA004DBE2D /* Scan ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -241,25 +262,9 @@
 		7E9EE91520E1816400F1CD79 /* StoryBoards */ = {
 			isa = PBXGroup;
 			children = (
-				F770EE9420FFD3160031CFE3 /* Currency.storyboard */,
 				F731E98020F527E900ACE318 /* LaunchScreen.storyboard */,
 				F731E98120F527E900ACE318 /* Main.storyboard */,
-				7E19044120EC7BCA004DBE2D /* CameraCrop.storyboard */,
-				F713F0A120F53FC20014D505 /* CameraCropPreview.storyboard */,
-				F713F09320F534B50014D505 /* Category.storyboard */,
-				F713F09720F534F40014D505 /* MyStuff.storyboard */,
-				F713F09B20F53D000014D505 /* AddItem.storyboard */,
-				F713F08720F531880014D505 /* FavoriteItems.storyboard */,
-				F713F08920F531D00014D505 /* SearchItems.storyboard */,
-				F713F08D20F532980014D505 /* CameraPreview.storyboard */,
-				F713F08F20F5344B0014D505 /* AddCategory.storyboard */,
-				7EFC781D20F5774B0096238A /* Dashboard.storyboard */,
-				7EFC782F20F5814B0096238A /* Settings.storyboard */,
-				7EFC783120F581630096238A /* PinPad.storyboard */,
-				17A46CA420FD2DAA008E9322 /* Onboarding.storyboard */,
-				7EADE38C20FE60020023215C /* BlackTabScreen.storyboard */,
-				7EADE38E20FE63AC0023215C /* StartCheckScreen.storyboard */,
-				F7789D192108E13400ED22FE /* ItemDetail.storyboard */,
+				7E0F580D2138AAB100F15B4A /* Old Storyboard Setup */,
 			);
 			path = StoryBoards;
 			sourceTree = "<group>";
@@ -475,7 +480,6 @@
 				7EFC783220F581630096238A /* PinPad.storyboard in Resources */,
 				F713F09020F5344B0014D505 /* AddCategory.storyboard in Resources */,
 				F713F08820F531880014D505 /* FavoriteItems.storyboard in Resources */,
-				F713F0A220F53FC20014D505 /* CameraCropPreview.storyboard in Resources */,
 				F713F08E20F532980014D505 /* CameraPreview.storyboard in Resources */,
 				17A46CA520FD2DAB008E9322 /* Onboarding.storyboard in Resources */,
 				7EFC781E20F5774B0096238A /* Dashboard.storyboard in Resources */,
@@ -486,7 +490,7 @@
 				F713F09C20F53D010014D505 /* AddItem.storyboard in Resources */,
 				7E19044220EC7BCB004DBE2D /* CameraCrop.storyboard in Resources */,
 				F713F08A20F531D00014D505 /* SearchItems.storyboard in Resources */,
-				7EADE38D20FE60020023215C /* BlackTabScreen.storyboard in Resources */,
+				7EADE38D20FE60020023215C /* BlankTabScreen.storyboard in Resources */,
 				F731E98320F527EA00ACE318 /* Main.storyboard in Resources */,
 				F7A08C2620EFF7D600E37754 /* Assets.xcassets in Resources */,
 				7EFC783020F5814B0096238A /* Settings.storyboard in Resources */,
@@ -686,7 +690,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4X5NURS3PH;
+				DEVELOPMENT_TEAM = DBM67E5D74;
 				INFOPLIST_FILE = "$(SRCROOT)/Stuffy/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -704,7 +708,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4X5NURS3PH;
+				DEVELOPMENT_TEAM = DBM67E5D74;
 				INFOPLIST_FILE = "$(SRCROOT)/Stuffy/Resources/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
