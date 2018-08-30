@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3XC-1v-QLt">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--CategoryNavigationController-->
+        <scene sceneID="ijS-Ct-CuL">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Category" referencedIdentifier="CategoryNavigationController" id="id1-UE-1dI" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="hqU-ue-4vi"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tG9-oj-SRI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2342" y="387"/>
+        </scene>
+        <!--FavoriteItems-->
+        <scene sceneID="1An-MV-9Tc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="FavoriteItems" id="C7W-OW-hBs" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="4GQ-iX-Y83"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zvg-0S-LuD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1924" y="383"/>
+        </scene>
+        <!--BlackTabScreen-->
+        <scene sceneID="HOn-CA-Nf3">
+            <objects>
+                <viewControllerPlaceholder storyboardName="BlackTabScreen" referencedIdentifier="BlackTabScreen" id="tVH-dI-6Iy" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="7PG-zT-m2J"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qQv-yB-OEF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1463" y="384"/>
+        </scene>
+        <!--SearchItems-->
+        <scene sceneID="pdg-Mj-99E">
+            <objects>
+                <viewControllerPlaceholder storyboardName="SearchItems" id="ulO-j0-xPC" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="pDG-Yx-r8h"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mfl-Xl-jSt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1001" y="387"/>
+        </scene>
+        <!--Dashboard-->
+        <scene sceneID="4fj-N9-198">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="DashBoard" storyboardName="Dashboard" id="7vT-i2-gYP" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="wN4-oi-Sug"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zxn-Xk-xN1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-602" y="387"/>
+        </scene>
+        <!--Custom Tab Bar View Controller-->
+        <scene sceneID="iix-aE-WR0">
+            <objects>
+                <tabBarController storyboardIdentifier="CustomTabBarViewContoller" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3XC-1v-QLt" customClass="CustomTabBarViewController" customModule="Stuffy" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" hidden="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dPu-uS-LHH">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <outlet property="tabView" destination="COI-NZ-51a" id="cKO-Gr-LFY"/>
+                        <segue destination="id1-UE-1dI" kind="relationship" relationship="viewControllers" id="7DQ-Va-url"/>
+                        <segue destination="C7W-OW-hBs" kind="relationship" relationship="viewControllers" id="2nb-LG-Jbc"/>
+                        <segue destination="tVH-dI-6Iy" kind="relationship" relationship="viewControllers" id="XTd-ja-noD"/>
+                        <segue destination="ulO-j0-xPC" kind="relationship" relationship="viewControllers" id="c7g-kv-9nS"/>
+                        <segue destination="7vT-i2-gYP" kind="relationship" relationship="viewControllers" id="0AD-zs-fyU"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gLg-1X-qb9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="COI-NZ-51a" customClass="CustomTabBarMainView" customModule="Stuffy" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="376" height="94"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iWV-eb-elQ" userLabel="BigView">
+                            <rect key="frame" x="0.0" y="10" width="376" height="94"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pG4-0g-WNe" userLabel="BackCircleView">
+                            <rect key="frame" x="149" y="-16" width="78" height="78"/>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="78" id="4BT-UW-KU8"/>
+                                <constraint firstAttribute="width" constant="78" id="DFd-sk-iTU"/>
+                            </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="45"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </view>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xBG-2n-Ctx">
+                            <rect key="frame" x="0.0" y="10" width="376" height="50"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalCentering" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="P1v-bl-gNK">
+                                    <rect key="frame" x="0.0" y="0.0" width="376" height="50"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="KyJ-ra-kCD" userLabel="L1View">
+                                            <rect key="frame" x="0.0" y="0.0" width="38" height="50"/>
+                                            <color key="backgroundColor" red="0.210382297" green="0.210382297" blue="0.210382297" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="32" id="GRQ-kc-OXY"/>
+                                            </constraints>
+                                        </view>
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bz4-Z0-Vho" userLabel="tabBarButton1">
+                                            <rect key="frame" x="38" y="10" width="30" height="30"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="0H1-0p-ZkF"/>
+                                                <constraint firstAttribute="height" constant="30" id="v6l-DK-b40"/>
+                                            </constraints>
+                                            <state key="normal" image="xcaHomeBarDark">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="tabBarBtnPressed:" destination="COI-NZ-51a" eventType="touchUpInside" id="P5O-QQ-WBX"/>
+                                            </connections>
+                                        </button>
+                                        <view contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="749" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3AK-ci-zdr" userLabel="L2View">
+                                            <rect key="frame" x="68" y="0.0" width="38" height="50"/>
+                                            <color key="backgroundColor" red="0.210382297" green="0.210382297" blue="0.210382297" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="38" id="VQA-gz-fbM"/>
+                                            </constraints>
+                                        </view>
+                                        <button opaque="NO" tag="1" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wk3-7p-N8f" userLabel="tabBarButton2">
+                                            <rect key="frame" x="106" y="10" width="30" height="30"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="Skd-ue-md5"/>
+                                                <constraint firstAttribute="height" constant="30" id="rmj-wg-KYU"/>
+                                            </constraints>
+                                            <state key="normal" image="xcaFavBarLight">
+                                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="tabBarBtnPressed:" destination="COI-NZ-51a" eventType="touchUpInside" id="0Xi-Hk-hEf"/>
+                                            </connections>
+                                        </button>
+                                        <view contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="sau-Hm-Gdv" userLabel="L3View">
+                                            <rect key="frame" x="136" y="0.0" width="32" height="50"/>
+                                            <color key="backgroundColor" red="0.210382297" green="0.210382297" blue="0.210382297" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="22" id="0Q9-tg-z5N"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" horizontalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="RI1-gS-Oo9" userLabel="MidSpace">
+                                            <rect key="frame" x="168" y="0.0" width="50" height="50"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="Jwr-P5-a1Z"/>
+                                            </constraints>
+                                        </view>
+                                        <view contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="P1M-mg-B0F" userLabel="R3View">
+                                            <rect key="frame" x="218" y="0.0" width="22" height="50"/>
+                                            <color key="backgroundColor" red="0.210382297" green="0.210382297" blue="0.210382297" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="22" id="4Mn-i9-Q5F"/>
+                                            </constraints>
+                                        </view>
+                                        <button opaque="NO" tag="3" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Bd-jS-wmD" userLabel="tabBarButton4">
+                                            <rect key="frame" x="240" y="10" width="30" height="30"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="30" id="oLO-qy-byS"/>
+                                                <constraint firstAttribute="width" constant="30" id="zJH-Mg-H5p"/>
+                                            </constraints>
+                                            <state key="normal" image="xcaSearchMenuLight"/>
+                                            <connections>
+                                                <action selector="tabBarBtnPressed:" destination="COI-NZ-51a" eventType="touchUpInside" id="FMr-Lz-IGg"/>
+                                            </connections>
+                                        </button>
+                                        <view contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="SLN-K7-e5K" userLabel="L2View">
+                                            <rect key="frame" x="270" y="0.0" width="38" height="50"/>
+                                            <color key="backgroundColor" red="0.210382297" green="0.210382297" blue="0.210382297" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="38" id="Q8R-Z2-Vgb"/>
+                                            </constraints>
+                                        </view>
+                                        <button opaque="NO" tag="4" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vyt-0G-NRR" userLabel="tabBarButton5">
+                                            <rect key="frame" x="308" y="10" width="30" height="30"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="30" id="cIK-ff-7w1"/>
+                                                <constraint firstAttribute="height" constant="30" id="fn7-kD-3Hz"/>
+                                            </constraints>
+                                            <state key="normal" image="xcaUserMenuLight"/>
+                                            <connections>
+                                                <action selector="tabBarBtnPressed:" destination="COI-NZ-51a" eventType="touchUpInside" id="t5p-tf-qpR"/>
+                                            </connections>
+                                        </button>
+                                        <view contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="UNm-tX-sBt" userLabel="R1View">
+                                            <rect key="frame" x="338" y="0.0" width="38" height="50"/>
+                                            <color key="backgroundColor" red="0.210382297" green="0.210382297" blue="0.210382297" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="38" id="FGr-7n-kMg"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                </stackView>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3mq-Gb-pfc" userLabel="CircleView">
+                                    <rect key="frame" x="143" y="-40" width="90" height="90"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mzv-bC-CoI" userLabel="SmallVisibleFrontCircleView">
+                                            <rect key="frame" x="6" y="10" width="78" height="78"/>
+                                            <subviews>
+                                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lRw-Ib-Ffz" userLabel="tabBarButton3">
+                                                    <rect key="frame" x="9" y="9" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="60" id="2id-tU-E9G"/>
+                                                        <constraint firstAttribute="width" constant="60" id="iIz-z4-ZfT"/>
+                                                    </constraints>
+                                                    <state key="normal" image="xcaAddItemBarBtn"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                            <integer key="value" value="30"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="tabBarBtnPressed:" destination="COI-NZ-51a" eventType="touchUpInside" id="s4I-7j-L2b"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="lRw-Ib-Ffz" firstAttribute="centerY" secondItem="mzv-bC-CoI" secondAttribute="centerY" id="3fq-iF-Gi3"/>
+                                                <constraint firstAttribute="height" constant="78" id="4zd-Bx-8NS"/>
+                                                <constraint firstAttribute="width" constant="78" id="S04-L0-pWS"/>
+                                                <constraint firstItem="lRw-Ib-Ffz" firstAttribute="centerX" secondItem="mzv-bC-CoI" secondAttribute="centerX" id="xlG-ox-VW6"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="39"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="90" id="3pC-bP-Bg2"/>
+                                        <constraint firstItem="mzv-bC-CoI" firstAttribute="centerX" secondItem="3mq-Gb-pfc" secondAttribute="centerX" id="67Q-j6-OdP"/>
+                                        <constraint firstAttribute="height" constant="90" id="IaN-8Z-i3k"/>
+                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="90" id="l6v-g0-6hr"/>
+                                        <constraint firstAttribute="bottom" secondItem="mzv-bC-CoI" secondAttribute="bottom" constant="2" id="w9D-SZ-xUQ"/>
+                                    </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="45"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="bottom" secondItem="3mq-Gb-pfc" secondAttribute="bottom" id="GIB-wm-Idp"/>
+                                <constraint firstAttribute="trailing" secondItem="P1v-bl-gNK" secondAttribute="trailing" id="Oh5-Oi-Vog"/>
+                                <constraint firstItem="P1v-bl-gNK" firstAttribute="leading" secondItem="xBG-2n-Ctx" secondAttribute="leading" id="iUd-dF-XaL"/>
+                                <constraint firstItem="P1v-bl-gNK" firstAttribute="centerY" secondItem="xBG-2n-Ctx" secondAttribute="centerY" id="tM6-Iu-qpY"/>
+                                <constraint firstItem="3mq-Gb-pfc" firstAttribute="centerX" secondItem="xBG-2n-Ctx" secondAttribute="centerX" id="tnT-VC-Wfa"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="pG4-0g-WNe" firstAttribute="centerX" secondItem="COI-NZ-51a" secondAttribute="centerX" id="7Sr-Hz-Mj4"/>
+                        <constraint firstItem="iWV-eb-elQ" firstAttribute="top" secondItem="pdN-zi-1LU" secondAttribute="top" constant="10" id="Cqt-W6-QQu"/>
+                        <constraint firstItem="iWV-eb-elQ" firstAttribute="bottom" secondItem="COI-NZ-51a" secondAttribute="bottom" constant="10" id="I1l-Df-fDx"/>
+                        <constraint firstItem="pdN-zi-1LU" firstAttribute="top" secondItem="xBG-2n-Ctx" secondAttribute="top" constant="-10" id="KwL-fJ-PJz"/>
+                        <constraint firstItem="xBG-2n-Ctx" firstAttribute="bottom" secondItem="COI-NZ-51a" secondAttribute="bottom" constant="-34" id="M2q-nk-9go"/>
+                        <constraint firstItem="iWV-eb-elQ" firstAttribute="trailing" secondItem="pdN-zi-1LU" secondAttribute="trailing" id="YJp-1J-a7Z"/>
+                        <constraint firstItem="iWV-eb-elQ" firstAttribute="leading" secondItem="pdN-zi-1LU" secondAttribute="leading" id="chk-vx-BRJ"/>
+                        <constraint firstItem="pdN-zi-1LU" firstAttribute="trailing" secondItem="xBG-2n-Ctx" secondAttribute="trailing" id="iDr-of-7VU"/>
+                        <constraint firstItem="pG4-0g-WNe" firstAttribute="bottom" secondItem="xBG-2n-Ctx" secondAttribute="bottom" constant="2" id="kb4-Rr-v1K"/>
+                        <constraint firstItem="xBG-2n-Ctx" firstAttribute="leading" secondItem="pdN-zi-1LU" secondAttribute="leading" id="n34-y6-BI2"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="pdN-zi-1LU"/>
+                    <connections>
+                        <outlet property="backCircleView" destination="pG4-0g-WNe" id="q0W-4j-hbF"/>
+                        <outlet property="tabBarButton1" destination="bz4-Z0-Vho" id="IPj-hg-cMq"/>
+                        <outlet property="tabBarButton2" destination="wk3-7p-N8f" id="ypC-fa-kyV"/>
+                        <outlet property="tabBarButton3" destination="lRw-Ib-Ffz" id="dJj-iq-f9I"/>
+                        <outlet property="tabBarButton4" destination="1Bd-jS-wmD" id="WqH-HK-sSn"/>
+                        <outlet property="tabBarButton5" destination="vyt-0G-NRR" id="SId-SS-bcm"/>
+                        <outlet property="tabViewBackgroundView" destination="xBG-2n-Ctx" id="fbL-Ks-fdX"/>
+                    </connections>
+                </view>
+            </objects>
+            <point key="canvasLocation" x="-1463" y="-183"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="xcaAddItemBarBtn" width="54" height="54"/>
+        <image name="xcaFavBarLight" width="30" height="30"/>
+        <image name="xcaHomeBarDark" width="30" height="30"/>
+        <image name="xcaSearchMenuLight" width="30" height="30"/>
+        <image name="xcaUserMenuLight" width="30" height="30"/>
+    </resources>
+</document>
