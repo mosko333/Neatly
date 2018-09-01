@@ -21,7 +21,7 @@ class NotesCell: UITableViewCell {
     @IBOutlet weak var addNotesLabel: UILabel!
     @IBOutlet weak var notesTextView: UITextView!
     @IBOutlet weak var deleteButton: UIButton!
-    var item: ItemCD?
+    var item: Item?
     
     weak var delegate: deleteItemDelegate?
     

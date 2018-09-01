@@ -1,18 +1,19 @@
 //
-//  Category+Convience.swift
+//  Category+Convenience.swift
 //  Stuffy
 //
-//  Created by Hayden Murdock on 7/6/18.
+//  Created by Adam on 30/08/2018.
 //  Copyright © 2018 Adam Moskovich. All rights reserved.
 //
 
 import Foundation
 import CoreData
 
-extension CategoryCD {
-    convenience init (name: String, isFavorited: Bool, context:  NSManagedObjectContext = CoreDataStack.context) {
-           self.init(context: context)
+extension Category {
+    @discardableResult convenience init (name: String, isFavorite: Bool, context: NSManagedObjectContext = CoreDataStack.context) {
+        // initalizing the context for us to place our data into
+        self.init(context: context)
         self.name = name
-        self.isFavorited = isFavorited
+        self.isFavorite = isFavorite
     }
 }

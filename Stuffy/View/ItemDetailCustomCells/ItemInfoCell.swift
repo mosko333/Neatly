@@ -18,16 +18,16 @@ class ItemInfoCell: UITableViewCell {
     @IBOutlet weak var modelTextField: UITextField!
     @IBOutlet weak var serialTextField: UITextField!
     
-    func updateCell(with item: ItemCD?) {
+    func updateCell(with item: Item?) {
         guard let item = item else { return }
         
         let dateFormatter = DateFormatter()
     
         purchaseDateLabel.text = dateFormatter.string(for: "\(item.purchaseDate ?? Date())") ?? ""
-        returnByDateLabel.text = dateFormatter.string(for: "\(item.lastDayToReturn ?? Date())") ?? ""
-        warrantyLabel.text = dateFormatter.string(for: "\(item.warranty ?? Date())") ?? ""
+        returnByDateLabel.text = dateFormatter.string(for: "\(item.returnDate ?? Date())") ?? ""
+        warrantyLabel.text = dateFormatter.string(for: "\(item.warrantyDate ?? Date())") ?? ""
         
-        vendorTextField.text = item.purchasedFrom
+        vendorTextField.text = item.storePurchasedFrom
         modelTextField.text = item.modelNumber
         serialTextField.text = item.serialNumber
         

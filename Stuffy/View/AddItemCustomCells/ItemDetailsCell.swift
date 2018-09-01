@@ -64,13 +64,13 @@ class ItemDetailsCell: UITableViewCell {
         
     }
     
-    func updateItemCell(with item: ItemCD?){
+    func updateItemCell(with item: Item?){
         guard let item = item else {return}
         
         purchaseDateLabel.text = "\(String(describing: item.purchaseDate))"
-        returnDateLabel.text = "\(String(describing: item.lastDayToReturn))"
-        warrantyExpirationDateLabel.text = "\(String(describing: item.warranty))"
-        storeVenderTextField.text = item.purchasedFrom
+        returnDateLabel.text = "\(String(describing: item.returnDate))"
+        warrantyExpirationDateLabel.text = "\(String(describing: item.warrantyDate))"
+        storeVenderTextField.text = item.storePurchasedFrom
         modelNumberTextField.text = item.modelNumber
         serialTextField.text = item.serialNumber
     }

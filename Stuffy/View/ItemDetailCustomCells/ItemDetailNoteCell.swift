@@ -14,10 +14,10 @@ class ItemDetailNoteCell: UITableViewCell {
     @IBOutlet weak var notesTextView: UITextView!
 
     
-    func updateCell(with item: ItemCD?) {
+    func updateCell(with item: Item?) {
         guard let item = item else {return}
         backgroundColor = Colors.stuffyBackgroundGray
-        notesTextView.text = item.notes
+        notesTextView.text = item.note
     }
     
 }

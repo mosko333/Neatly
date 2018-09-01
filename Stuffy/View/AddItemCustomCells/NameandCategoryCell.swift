@@ -29,15 +29,15 @@ class NameandCategoryCell: UITableViewCell {
         delegate?.minusItemQuantity(self)
     }
     
-    func updateCell(with item: ItemCD?) {
+    func updateCell(with item: Item?) {
         guard let item = item else { return }
 
-        itemNameTextField.text = item.title
+        itemNameTextField.text = item.name
         priceTextField.text = ("\(item.price)")
         quantityTextField.text = ("\(item.quantity)")
         
     }
-    func updateCell(with category: CategoryCD?) {
+    func updateCell(with category: Category?) {
         guard let category = category else {return}
         guard let name = category.name else {return}
         changeCategoryButton.setTitle("\(name)", for: .normal)

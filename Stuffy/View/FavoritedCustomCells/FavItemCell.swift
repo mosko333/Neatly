@@ -24,11 +24,11 @@ class FavItemCell: UITableViewCell {
     }
 
     
-    func updateItem(with item: ItemCD) {
+    func updateItem(with item: Item) {
         
-        itemNameLabel.text = item.title
+        itemNameLabel.text = item.name
         datePurchasedLabel.text = "need to add in"
-        if item.isFavorited == true{
+        if item.isFavorite == true{
             isFavoritedButton.setBackgroundImage(#imageLiteral(resourceName: "xcaFullStar"), for: .normal)
         } else {
             isFavoritedButton.setBackgroundImage(#imageLiteral(resourceName: "xcaEmptyStar"), for: .normal)

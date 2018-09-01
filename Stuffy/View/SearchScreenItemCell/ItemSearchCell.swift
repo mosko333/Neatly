@@ -22,7 +22,7 @@ class ItemSearchCell: UITableViewCell {
     
     weak var delegate: FavoriteItemDelegate?
     
-    var item: ItemCD? 
+    var item: Item?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,11 +30,11 @@ class ItemSearchCell: UITableViewCell {
         
     }
     
-    func updateCell(with item: ItemCD) {
+    func updateCell(with item: Item) {
 
-        itemNameLabel.text = item.title
+        itemNameLabel.text = item.name
         datePurchasedLabel.text = "need to add in"
-        if item.isFavorited == true{
+        if item.isFavorite == true{
              isFavoritedButton.setBackgroundImage(#imageLiteral(resourceName: "xcaItemFavStarFull"), for: .normal)
         } else {
              isFavoritedButton.setBackgroundImage(#imageLiteral(resourceName: "xcaItemFavStarEmpty"), for: .normal)
@@ -49,11 +49,11 @@ class ItemSearchCell: UITableViewCell {
         
     }
     
-    func getPhoto(with item: ItemCD) -> UIImage {
-        guard let photos = item.images?.allObjects as? [ImageCD] else {return UIImage()}
+    func getPhoto(with item: Item) -> UIImage {
+        guard let photos = item.images?.array as? [Image] else {return UIImage()}
         
         for photo in photos {
-            let image = UIImage(data: photo.image!)
+            let image = UIImage(data: photo.imageData!)
             let fixedPhoto = image?.fixedOrientation()
             return fixedPhoto!
         }

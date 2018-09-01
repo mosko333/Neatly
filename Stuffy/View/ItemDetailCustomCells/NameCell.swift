@@ -16,11 +16,11 @@ class NameCell: UITableViewCell {
     @IBOutlet weak var categoryLabel: UILabel!
     
     
-    func updateNameCell(with item: ItemCD?, with category: CategoryCD?) {
+    func updateNameCell(with item: Item?, with category: Category?) {
         guard let item = item, let category = category else { return }
         self.backgroundColor = Colors.stuffyBackgroundGray
     
-        itemNameTextField.text = item.title
+        itemNameTextField.text = item.name
         
         itemPriceTextField.text = "\(item.price)"
         itemQuantityTextField.text = "\(item.quantity)"

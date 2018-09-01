@@ -29,21 +29,21 @@ class ReturnAndWarrantyTableViewCell: UITableViewCell {
         var date3 = ""
         if CoreDataController.shared.items.count > 0 {
             let items = CoreDataController.shared.items
-            let closestDateItemArray = items.sorted { $0.lastDayToReturn! < $1.lastDayToReturn! }
+            let closestDateItemArray = items.sorted { $0.returnDate! < $1.returnDate! }
             let df = DateFormatter()
             df.dateFormat = "MM/dd/yyyy"
             
             if items.count == 1 {
-                date1 =  df.string(from: closestDateItemArray[0].lastDayToReturn ?? Date())
+                date1 =  df.string(from: closestDateItemArray[0].returnDate ?? Date())
             }
             if items.count == 2 {
-                date1 = df.string(from: closestDateItemArray[0].lastDayToReturn ?? Date())
-                date2 = df.string(from: closestDateItemArray[1].lastDayToReturn ?? Date())
+                date1 = df.string(from: closestDateItemArray[0].returnDate ?? Date())
+                date2 = df.string(from: closestDateItemArray[1].returnDate ?? Date())
             }
             if items.count > 2 {
-                date1 = df.string(from: closestDateItemArray[0].lastDayToReturn ?? Date())
-                date2 = df.string(from: closestDateItemArray[1].lastDayToReturn ?? Date())
-                date3 = df.string(from: closestDateItemArray[2].lastDayToReturn ?? Date())
+                date1 = df.string(from: closestDateItemArray[0].returnDate ?? Date())
+                date2 = df.string(from: closestDateItemArray[1].returnDate ?? Date())
+                date3 = df.string(from: closestDateItemArray[2].returnDate ?? Date())
                 
             }
         }
@@ -56,19 +56,19 @@ class ReturnAndWarrantyTableViewCell: UITableViewCell {
         
         if CoreDataController.shared.items.count > 0 {
             let items = CoreDataController.shared.items
-            let closestDateItemArray = items.sorted { $0.lastDayToReturn! < $1.lastDayToReturn! }
+            let closestDateItemArray = items.sorted { $0.returnDate! < $1.returnDate! }
             
             if items.count == 1 {
-                item1Name =  closestDateItemArray[0].title ?? "None"
+                item1Name =  closestDateItemArray[0].name ?? "None"
             }
             if items.count == 2 {
-                item1Name =  closestDateItemArray[0].title ?? "None"
-                item2Name = closestDateItemArray[1].title ?? "None"
+                item1Name =  closestDateItemArray[0].name ?? "None"
+                item2Name = closestDateItemArray[1].name ?? "None"
             }
             if items.count > 2 {
-                item1Name =  closestDateItemArray[0].title ?? "None"
-                item2Name = closestDateItemArray[1].title ?? "None"
-                item3Name = closestDateItemArray[2].title ?? "None"
+                item1Name =  closestDateItemArray[0].name ?? "None"
+                item2Name = closestDateItemArray[1].name ?? "None"
+                item3Name = closestDateItemArray[2].name ?? "None"
             }
             
         }
@@ -83,21 +83,21 @@ class ReturnAndWarrantyTableViewCell: UITableViewCell {
         var date3 = ""
         if CoreDataController.shared.items.count > 0 {
             let items = CoreDataController.shared.items
-            let closestDateItemArray = items.sorted { $0.warranty! < $1.warranty! }
+            let closestDateItemArray = items.sorted { $0.warrantyDate! < $1.warrantyDate! }
             let df = DateFormatter()
             df.dateFormat = "MM/dd/yyyy"
             
             if items.count == 1 {
-                date1 = df.string(from: closestDateItemArray[0].warranty ?? Date())
+                date1 = df.string(from: closestDateItemArray[0].warrantyDate ?? Date())
             }
             if items.count == 2 {
-                date1 =  df.string(from: closestDateItemArray[0].warranty ?? Date())
-                date2 = df.string(from: closestDateItemArray[1].warranty ?? Date())
+                date1 =  df.string(from: closestDateItemArray[0].warrantyDate ?? Date())
+                date2 = df.string(from: closestDateItemArray[1].warrantyDate ?? Date())
             }
             if items.count > 2 {
-                date1 = df.string(from: closestDateItemArray[0].warranty ?? Date())
-                date2 = df.string(from: closestDateItemArray[1].warranty ?? Date())
-                date3 = df.string(from: closestDateItemArray[2].warranty ?? Date())
+                date1 = df.string(from: closestDateItemArray[0].warrantyDate ?? Date())
+                date2 = df.string(from: closestDateItemArray[1].warrantyDate ?? Date())
+                date3 = df.string(from: closestDateItemArray[2].warrantyDate ?? Date())
                 
             }
         }
@@ -110,19 +110,19 @@ class ReturnAndWarrantyTableViewCell: UITableViewCell {
         var item3Name = ""
         if CoreDataController.shared.items.count > 0 {
             let items = CoreDataController.shared.items
-            let closestDateItemArray = items.sorted { $0.warranty! < $1.warranty! }
+            let closestDateItemArray = items.sorted { $0.warrantyDate! < $1.warrantyDate! }
             
             if items.count == 1 {
-                item1Name =  closestDateItemArray[0].title ?? "None"
+                item1Name =  closestDateItemArray[0].name ?? "None"
             }
             if items.count == 2 {
-                item1Name =  closestDateItemArray[0].title ?? "None"
-                item2Name = closestDateItemArray[1].title ?? "None"
+                item1Name =  closestDateItemArray[0].name ?? "None"
+                item2Name = closestDateItemArray[1].name ?? "None"
             }
             if items.count > 2 {
-                item1Name =  closestDateItemArray[0].title ?? "None"
-                item2Name = closestDateItemArray[1].title ?? "None"
-                item3Name = closestDateItemArray[2].title ?? "None"
+                item1Name =  closestDateItemArray[0].name ?? "None"
+                item2Name = closestDateItemArray[1].name ?? "None"
+                item3Name = closestDateItemArray[2].name ?? "None"
             }
         }
         return (item1Name, item2Name, item3Name)
