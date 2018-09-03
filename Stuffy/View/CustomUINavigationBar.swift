@@ -18,13 +18,6 @@ class CustomUINavigationBar: UINavigationBar {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        //
-        //        print("It called")
-        //
-        //        self.tintColor = Colors.stuffyNavyBlue
-        //        self.backgroundColor = .red
-        
-        
         
         for subview in self.subviews {
             var stringFromClass = NSStringFromClass(subview.classForCoder)

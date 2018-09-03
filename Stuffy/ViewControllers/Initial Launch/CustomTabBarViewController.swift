@@ -9,22 +9,25 @@
 import UIKit
 
 class CustomTabBarViewController: UITabBarController, CustomTabBarViewMainDelegate {
-    
+    //
+    // MARK: - Outlets
+    //
     @IBOutlet weak var tabView: CustomTabBarMainView!
-    
-    override var selectedIndex: Int {
-        didSet {
-            //  tabView.setAppearance(forIndex: selectedIndex)
-        }
-    }
-    
+    //
+    // MARK: - Lifecycle Functions
+    //
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupTabBar()
+    }
+    //
+    // MARK: - Methods
+    //
+    func setupTabBar() {
         
-        setupView()
-        tabView.translatesAutoresizingMaskIntoConstraints = false
         tabView.delegate = self
         selectedIndex = 0
+        tabView.translatesAutoresizingMaskIntoConstraints = false
         tabView.addShadow()
         view.addSubview(tabView)
         
@@ -35,28 +38,15 @@ class CustomTabBarViewController: UITabBarController, CustomTabBarViewMainDelega
         
         NSLayoutConstraint.activate([leadingConstraint, trailingConstraint, bottomConstraint, heightConstraint])
     }
-    
-    // MARK: - Custom Tab Bar Delegate
-    
+    //
+    // MARK: - Delegate @ Data Source Methods
+    //
     func tabBarViewChangedSelectedIndex(at index: Int) {
         selectedIndex = index
     }
-    
+    /// Center addButton is pressed, so this func presents the addItemVC modely
     func addItemTabPressed() {
         // TODO - Do Model segue here to addItem screen
-        let storyBoard = UIStoryboard(name: "AddItem", bundle: nil)
-        let destinationVC = storyBoard.instantiateViewController(withIdentifier: "AddItemNavController") as! UINavigationController
-        present(destinationVC, animated: true)
-        print("Present AddItem modelly here")
+        present(AddItemTableViewController(), animated: true)
     }
-    
-    func setupView() {
-        
-//        guard let items = tabBar.items else { return }
-//        let firstTab = items[0]
-//        firstTab.selectedImage = #imageLiteral(resourceName: "xca6")
-//        firstTab.image = #imageLiteral(resourceName: "xca7")
-
-    }
-    
 }

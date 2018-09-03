@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 protocol  CustomTabBarViewMainDelegate:class {
     func tabBarViewChangedSelectedIndex(at index: Int)
     func addItemTabPressed()
@@ -22,7 +21,9 @@ class CustomTabBarMainView: UIView {
         static let shadowOffset = CGSize(width: 0, height: -5)
         static let shadowOpacity: Float = 0.5
     }
-    
+    //
+    // MARK: - Outlets
+    //
     @IBOutlet weak var backCircleView: UIView!
     @IBOutlet weak var tabViewBackgroundView: UIView!
     
@@ -31,9 +32,15 @@ class CustomTabBarMainView: UIView {
     @IBOutlet weak var tabBarButton3: UIButton!
     @IBOutlet weak var tabBarButton4: UIButton!
     @IBOutlet weak var tabBarButton5: UIButton!
-    
+    //
+    // MARK: - Properties
+    //
     weak var delegate: CustomTabBarViewMainDelegate?
+    //
+    // MARK: - Methods
+    //
     
+    /// adds the shadow over the tabBar
     func addShadow() {
         backCircleView.layer.shadowColor = UIColor(red: Constants.grayRatio, green: Constants.grayRatio, blue: Constants.grayRatio, alpha: 1).cgColor
         backCircleView.layer.shadowRadius = Constants.shadowRadius
@@ -45,16 +52,18 @@ class CustomTabBarMainView: UIView {
         tabViewBackgroundView.layer.shadowOffset = Constants.shadowOffset
         tabViewBackgroundView.layer.shadowOpacity = Constants.shadowOpacity
     }
+    /// Sets all the tabBar Icons to their deselected state
+    fileprivate func deselectTabBarIcon() {
+        tabBarButton1.setImage(#imageLiteral(resourceName: "xcaHomeBarLight"), for: .normal)
+        tabBarButton2.setImage(#imageLiteral(resourceName: "xcaFavBarLight"), for: .normal)
+        tabBarButton4.setImage(#imageLiteral(resourceName: "xcaSearchMenuLight"), for: .normal)
+        tabBarButton5.setImage(#imageLiteral(resourceName: "xcaUserMenuLight"), for: .normal)
+    }
     
-    @IBAction func tabBarBtnPressed(_ sender: UIButton) {
-        
-        if sender == tabBarButton3 {
-            delegate?.addItemTabPressed()
-            print("AddItem Btn Pressed")
-            return
-        }
-        
-        reset()
+    /// Sets the selected tabBar Icon to the 'active' image
+    ///
+    /// - Parameter sender: Is the tabBar button pressed
+    fileprivate func selectTabBarIcon(_ sender: UIButton) {
         switch sender {
         case tabBarButton1:
             sender.setImage(#imageLiteral(resourceName: "xcaHomeBarDark"), for: .normal)
@@ -67,14 +76,19 @@ class CustomTabBarMainView: UIView {
         default:
             sender.setImage(#imageLiteral(resourceName: "xcaSampleImage"), for: .normal)
         }
-        delegate?.tabBarViewChangedSelectedIndex(at: sender.tag)
     }
-    
-    func reset() {
-        tabBarButton1.setImage(#imageLiteral(resourceName: "xcaHomeBarLight"), for: .normal)
-        tabBarButton2.setImage(#imageLiteral(resourceName: "xcaFavBarLight"), for: .normal)
-        tabBarButton4.setImage(#imageLiteral(resourceName: "xcaSearchMenuLight"), for: .normal)
-        tabBarButton5.setImage(#imageLiteral(resourceName: "xcaUserMenuLight"), for: .normal)
+    //
+    // MARK: - Actions
+    //
+    @IBAction func tabBarBtnPressed(_ sender: UIButton) {
+        if sender == tabBarButton3 {
+            delegate?.addItemTabPressed()
+            print("AddItem Btn Pressed")
+            return
+        }
+        deselectTabBarIcon()
+        selectTabBarIcon(sender)
+        delegate?.tabBarViewChangedSelectedIndex(at: sender.tag)
     }
     
 }
