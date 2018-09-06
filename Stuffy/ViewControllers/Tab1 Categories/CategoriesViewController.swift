@@ -2,7 +2,7 @@
 //  CategoriesViewController.swift
 //  Stuffy
 //
-//  Created by Hayden Murdock on 7/2/17.
+//  Created by Adam Moskovich on 7/2/17.
 //  Copyright © 2017 Adam Moskovich. All rights reserved.
 //
 
