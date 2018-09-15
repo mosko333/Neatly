@@ -6,7 +6,7 @@
 //  Copyright © 2018 Adam Moskovich. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import CoreData
 
 extension Image {
@@ -16,4 +16,14 @@ extension Image {
         self.item = item
         self.imageData = imageData
     }
+    
+//    var image: UIImage?{
+//    guard let imageData = imageData else {return nil}
+//    return UIImage(data: imageData)
+//    }
+//    
+//    image: UIImage
+//
+//    let imageData image.UIImage
+//    self.imageData = imageData
 }

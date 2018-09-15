@@ -25,6 +25,7 @@
 		7E19043F20EC7AC9004DBE2D /* PhotoPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E19043D20EC7AC9004DBE2D /* PhotoPreviewViewController.swift */; };
 		7E19044020EC7AC9004DBE2D /* AutoCropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E19043E20EC7AC9004DBE2D /* AutoCropViewController.swift */; };
 		7E232A5B213F513A0022A35D /* CustomIBDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E232A5A213F513A0022A35D /* CustomIBDesignableView.swift */; };
+		7E24D1292141E94A0013D70A /* AddItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E24D1282141E94A0013D70A /* AddItemTableViewController.swift */; };
 		7E9EE90320E1811B00F1CD79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9EE90220E1811B00F1CD79 /* AppDelegate.swift */; };
 		7E9EE96A20E3119D00F1CD79 /* CustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9EE96920E3119D00F1CD79 /* CustomTabBarViewController.swift */; };
 		7E9EE96E20E317AD00F1CD79 /* CustomTabBarMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9EE96D20E317AD00F1CD79 /* CustomTabBarMainView.swift */; };
@@ -32,6 +33,7 @@
 		7EBCE29F21014BE20031A9CC /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBCE29E21014BE20031A9CC /* HeaderTableViewCell.swift */; };
 		7EBCE2A121014C050031A9CC /* TotalValueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBCE2A021014C050031A9CC /* TotalValueTableViewCell.swift */; };
 		7EBCE2A521014C6D0031A9CC /* ReturnAndWarrantyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBCE2A421014C6D0031A9CC /* ReturnAndWarrantyTableViewCell.swift */; };
+		7EEDB7CE214C368900AD3AF4 /* TempItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEDB7CD214C368900AD3AF4 /* TempItem.swift */; };
 		7EFBDABA210130AF00820978 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFBDAB9210130AF00820978 /* CurrencyViewController.swift */; };
 		7EFC782220F577810096238A /* PinPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFC781F20F577810096238A /* PinPadViewController.swift */; };
 		7EFC782320F577810096238A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFC782020F577810096238A /* SettingsViewController.swift */; };
@@ -54,7 +56,7 @@
 		F7789D2C210EF66000ED22FE /* CoreDataFetchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7789D2B210EF66000ED22FE /* CoreDataFetchController.swift */; };
 		F77BB3E220E6DA9900D2FCD4 /* KeyboardExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77BB3E120E6DA9900D2FCD4 /* KeyboardExtensions.swift */; };
 		F77BB3E420E6DA9900D2FCD4 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77BB3E320E6DA9900D2FCD4 /* CategoriesViewController.swift */; };
-		F77BB3E620EAEB1700D2FCD4 /* AddItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77BB3E520EAEB1700D2FCD4 /* AddItemTableViewController.swift */; };
+		F77BB3E620EAEB1700D2FCD4 /* OldAddItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77BB3E520EAEB1700D2FCD4 /* OldAddItemTableViewController.swift */; };
 		F77BB3E920EAEC5E00D2FCD4 /* CameraCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77BB3E820EAEC5E00D2FCD4 /* CameraCell.swift */; };
 		F77BB3EB20EC127A00D2FCD4 /* NameandCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77BB3EA20EC127A00D2FCD4 /* NameandCategoryCell.swift */; };
 		F77BB3ED20EC46A800D2FCD4 /* ItemDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F77BB3EC20EC46A800D2FCD4 /* ItemDetailsCell.swift */; };
@@ -92,6 +94,7 @@
 		7E19043D20EC7AC9004DBE2D /* PhotoPreviewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPreviewViewController.swift; sourceTree = "<group>"; };
 		7E19043E20EC7AC9004DBE2D /* AutoCropViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoCropViewController.swift; sourceTree = "<group>"; };
 		7E232A5A213F513A0022A35D /* CustomIBDesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIBDesignableView.swift; sourceTree = "<group>"; };
+		7E24D1282141E94A0013D70A /* AddItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemTableViewController.swift; sourceTree = "<group>"; };
 		7E9EE8FF20E1811B00F1CD79 /* Stuffy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stuffy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E9EE90220E1811B00F1CD79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E9EE90920E1811C00F1CD79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -102,6 +105,7 @@
 		7EBCE29E21014BE20031A9CC /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		7EBCE2A021014C050031A9CC /* TotalValueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalValueTableViewCell.swift; sourceTree = "<group>"; };
 		7EBCE2A421014C6D0031A9CC /* ReturnAndWarrantyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnAndWarrantyTableViewCell.swift; sourceTree = "<group>"; };
+		7EEDB7CD214C368900AD3AF4 /* TempItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempItem.swift; sourceTree = "<group>"; };
 		7EFBDAB9210130AF00820978 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
 		7EFC781F20F577810096238A /* PinPadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinPadViewController.swift; sourceTree = "<group>"; };
 		7EFC782020F577810096238A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -124,7 +128,7 @@
 		F7789D2B210EF66000ED22FE /* CoreDataFetchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataFetchController.swift; sourceTree = "<group>"; };
 		F77BB3E120E6DA9900D2FCD4 /* KeyboardExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardExtensions.swift; sourceTree = "<group>"; };
 		F77BB3E320E6DA9900D2FCD4 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
-		F77BB3E520EAEB1700D2FCD4 /* AddItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemTableViewController.swift; sourceTree = "<group>"; };
+		F77BB3E520EAEB1700D2FCD4 /* OldAddItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldAddItemTableViewController.swift; sourceTree = "<group>"; };
 		F77BB3E820EAEC5E00D2FCD4 /* CameraCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraCell.swift; sourceTree = "<group>"; };
 		F77BB3EA20EC127A00D2FCD4 /* NameandCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameandCategoryCell.swift; sourceTree = "<group>"; };
 		F77BB3EC20EC46A800D2FCD4 /* ItemDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsCell.swift; sourceTree = "<group>"; };
@@ -191,12 +195,12 @@
 			path = "Scan ViewControllers";
 			sourceTree = "<group>";
 		};
-		7E232A5C213F51450022A35D /* MyNewCode */ = {
+		7E24D1272141E9130013D70A /* New Code */ = {
 			isa = PBXGroup;
 			children = (
-				7E232A5A213F513A0022A35D /* CustomIBDesignableView.swift */,
+				7E24D1282141E94A0013D70A /* AddItemTableViewController.swift */,
 			);
-			path = MyNewCode;
+			path = "New Code";
 			sourceTree = "<group>";
 		};
 		7E86805B213A06FB00A3B198 /* Tab1 Categories */ = {
@@ -230,8 +234,9 @@
 		7E86805E213A07B100A3B198 /* Tab3 CRUD Item */ = {
 			isa = PBXGroup;
 			children = (
+				7E24D1272141E9130013D70A /* New Code */,
 				F7789D1B2108EC9400ED22FE /* ItemDetailViewController.swift */,
-				F77BB3E520EAEB1700D2FCD4 /* AddItemTableViewController.swift */,
+				F77BB3E520EAEB1700D2FCD4 /* OldAddItemTableViewController.swift */,
 				F7A08C2120EEC97200E37754 /* CategoriesDetailViewController.swift */,
 				F78D663920E421E7003407E7 /* CameraPreviewViewController.swift */,
 				7E19043C20EC7AAA004DBE2D /* Scan ViewControllers */,
@@ -281,6 +286,7 @@
 				F78D660D20E19202003407E7 /* ModelControllers */,
 				F78D661220E1A14C003407E7 /* ViewControllers */,
 				F78D660620E187E5003407E7 /* Model */,
+				7EB65F8C214B1110004F031F /* NewViews */,
 				F78D661520E1A265003407E7 /* View */,
 				7E9EE91420E1814B00F1CD79 /* Resources */,
 			);
@@ -307,6 +313,22 @@
 				F731E98120F527E900ACE318 /* Main.storyboard */,
 			);
 			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		7EB65F8C214B1110004F031F /* NewViews */ = {
+			isa = PBXGroup;
+			children = (
+				7EB65F8E214B1164004F031F /* CustomViews */,
+			);
+			path = NewViews;
+			sourceTree = "<group>";
+		};
+		7EB65F8E214B1164004F031F /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				7E232A5A213F513A0022A35D /* CustomIBDesignableView.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 		7EBCE29721014B390031A9CC /* DashboardCells */ = {
@@ -383,6 +405,7 @@
 				7E0F58162138EC4800F15B4A /* Category+Convenience.swift */,
 				7E0F58182138ECFA00F15B4A /* Item+Convenience.swift */,
 				7E0F581A2138F00000F15B4A /* Image+Convenience.swift */,
+				7EEDB7CD214C368900AD3AF4 /* TempItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -413,7 +436,6 @@
 		F78D661520E1A265003407E7 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7E232A5C213F51450022A35D /* MyNewCode */,
 				F7789D22210BCE9F00ED22FE /* ItemDetailCustomCells */,
 				7EBCE29721014B390031A9CC /* DashboardCells */,
 				F78F675820FE6997001320D1 /* CategoryTableViewCell.swift */,
@@ -540,6 +562,7 @@
 				7E0F58192138ECFA00F15B4A /* Item+Convenience.swift in Sources */,
 				7EBCE29F21014BE20031A9CC /* HeaderTableViewCell.swift in Sources */,
 				7E0F58122138DFD500F15B4A /* Stuffy.xcdatamodeld in Sources */,
+				7E24D1292141E94A0013D70A /* AddItemTableViewController.swift in Sources */,
 				F77BB3E220E6DA9900D2FCD4 /* KeyboardExtensions.swift in Sources */,
 				7E232A5B213F513A0022A35D /* CustomIBDesignableView.swift in Sources */,
 				F78F675A20FE6998001320D1 /* CategoryTableViewCell.swift in Sources */,
@@ -557,6 +580,7 @@
 				7EBCE2A121014C050031A9CC /* TotalValueTableViewCell.swift in Sources */,
 				F7789D28210BCF2000ED22FE /* ItemInfoCell.swift in Sources */,
 				1770ACE220E6CC25005DBDF5 /* OldItemController.swift in Sources */,
+				7EEDB7CE214C368900AD3AF4 /* TempItem.swift in Sources */,
 				F7D9D98020F2F7A600F429A1 /* SearchItemsViewController.swift in Sources */,
 				7EFC782C20F577F50096238A /* ResetAndEraseTableViewCell.swift in Sources */,
 				7EFC782B20F577F50096238A /* CurrencyPickerTableViewCell.swift in Sources */,
@@ -571,7 +595,7 @@
 				F77BB3EB20EC127A00D2FCD4 /* NameandCategoryCell.swift in Sources */,
 				F78F675B20FE6998001320D1 /* CustomUINavigationBar.swift in Sources */,
 				7E0F581B2138F00000F15B4A /* Image+Convenience.swift in Sources */,
-				F77BB3E620EAEB1700D2FCD4 /* AddItemTableViewController.swift in Sources */,
+				F77BB3E620EAEB1700D2FCD4 /* OldAddItemTableViewController.swift in Sources */,
 				F7A08C2220EEC97200E37754 /* CategoriesDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
