@@ -26,4 +26,23 @@ extension Item {
         self.warrantyDate = warrantyDate
         self.returnDate = returnDate
     }
+    
+    convenience init(tempItem: TempItem, context: NSManagedObjectContext = CoreDataStack.context) {
+        // initalizing the context for us to place our data into
+        self.init(context: context)
+        self.category = tempItem.category
+        self.name = tempItem.name
+        self.isFavorite = tempItem.isFavorite ?? false
+        self.modelNumber = tempItem.modelNumber
+        self.storePurchasedFrom = tempItem.storePurchasedFrom
+        self.note = tempItem.note
+        if let priceString = tempItem.price, !priceString.isEmpty, let price = Double(priceString) {
+            self.price = price
+        }
+        self.quantity = tempItem.quantity ?? 1.0
+        self.serialNumber = tempItem.serialNumber
+        self.purchaseDate = tempItem.purchaseDate
+        self.warrantyDate = tempItem.warrantyDate
+        self.returnDate = tempItem.returnDate
+    }
 }

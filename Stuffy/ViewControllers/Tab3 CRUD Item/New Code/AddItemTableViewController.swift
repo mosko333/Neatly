@@ -15,7 +15,9 @@ class AddItemTableViewController: UITableViewController {
     //
     // MARK: - Properties
     //
-    var tempItem: TempItem?
+    var tempItem = TempItem()
+    var item: Item?
+    let imagePickerController = UIImagePickerController()
     //
     // MARK: - Outlets
     //
@@ -42,9 +44,23 @@ class AddItemTableViewController: UITableViewController {
         setupDateFieldKeyboards()
         hideKeyboard()
         clearTextView()
-        setupTextFieldDelegates()
+        setupDelegates()
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        updateImages()
+    }
+    //
+    // MARK: - Methods
+    //
+    func updateImages() {
+        if tempItem.images.count > 0 {
+            cameraBigBackgroundImageView.image = tempItem.images[0]
+        }
+        if tempItem.images.count > 1 {
+            cameraSummeryBtn.setImage(tempItem.images[1], for: .normal)
+        }
+    }
     func setupDateFieldKeyboards() {
         purchaseDateTextField.inputView = datePicker
         returnDateTextField.inputView = datePicker
@@ -68,7 +84,8 @@ class AddItemTableViewController: UITableViewController {
         notesTextView.text = "Add Notes"
     }
     
-    func setupTextFieldDelegates() {
+    func setupDelegates() {
+        imagePickerController.delegate = self
         itemNameTextField.delegate = self
         priceTextField.delegate = self
         quantityTextField.delegate = self
@@ -78,13 +95,15 @@ class AddItemTableViewController: UITableViewController {
     }
     
     func saveToTempItem() {
-        tempItem?.name = itemNameTextField.text
-        tempItem?.price = priceTextField.text
-        tempItem?.quantity = quantityTextField.text
-        tempItem?.storePurchasedFrom = storeTextField.text
-        tempItem?.modelNumber = modelNumTextField.text
-        tempItem?.serialNumber = serielNumTextField.text
-        tempItem?.note = notesTextView.text
+        tempItem.name = itemNameTextField.text
+        tempItem.price = priceTextField.text
+        if let quantity = quantityTextField.text, !quantity.isEmpty {
+            tempItem.quantity = Double(quantity)
+        }
+        tempItem.storePurchasedFrom = storeTextField.text
+        tempItem.modelNumber = modelNumTextField.text
+        tempItem.serialNumber = serielNumTextField.text
+        tempItem.note = notesTextView.text
         print(tempItem)
     }
     
@@ -110,24 +129,50 @@ class AddItemTableViewController: UITableViewController {
     //
     // Bar Button Items
     @IBAction func cancelBtnTapped(_ sender: UIBarButtonItem) {
+        dismiss(animated: true)
     }
     @IBAction func saveBtnTapped(_ sender: UIBarButtonItem) {
+        if let _ = tempItem.category,
+            let name = tempItem.name,
+            !name.components(separatedBy: .whitespaces).isEmpty,
+            let quantaty = quantityTextField.text,
+            let quantatyNum = Int(quantaty),
+            quantatyNum > 1 {
+            ItemController.createItemFrom(tempItem: tempItem)
+        }
     }
     // Select input media
     @IBAction func mediaInputTypeBtnTapped(_ sender: UIButton) {
-        //        switch sender.tag {
-        //        case 0:
-        //            // Library
-        //        case 1:
-        //            // Camera
-        //        case 2:
-        //            // Scan
-        //        default:
-        //            return
-        //        }
+                switch sender.tag {
+                case 0:
+                    pickImageFromLibrary()
+                case 1:
+                    pickImageWithCamera()
+                case 2:
+                    // Scan
+                    navigationController?.performSegue(withIdentifier: "toNavControllerAutoCrop", sender: self)
+                default:
+                    return
+                }
     }
     // Text field controls
     @IBAction func quantityChangedBtnTapped(_ sender: UIButton) {
+        guard let quantityLabel = quantityTextField.text,
+            var quantity = Int(quantityLabel) else { return }
+        switch sender.tag {
+        case 0:
+               if quantity > 1 {
+                    quantity -= 1
+            }
+        case 1:
+            if quantity < 10000 {
+                quantity += 1
+            }
+        default:
+            return
+        }
+        tempItem.quantity = Double(quantity)
+        quantityTextField.text = "\(quantity)"
     }
     @IBAction func dateBtnPressed(_ sender: UIButton) {
         switch sender.tag {
@@ -142,19 +187,27 @@ class AddItemTableViewController: UITableViewController {
         }
     }
     @IBAction func datePickerSelected(_ sender: UIDatePicker) {
+        let dateFormater = DateFormatter()
         if purchaseDateTextField.isFirstResponder {
-            purchaseDateTextField.text = "\(datePicker.date)"
-            tempItem?.purchaseDate = datePicker.date
+            dateFormater.dateStyle = .long
+            purchaseDateTextField.text = dateFormater.string(from: datePicker.date)
+            tempItem.purchaseDate = datePicker.date
         } else if returnDateTextField.isFirstResponder {
-            returnDateTextField.text = "\(datePicker.date)"
-            tempItem?.returnDate = datePicker.date
+            dateFormater.dateStyle = .short
+            returnDateTextField.text = dateFormater.string(from: datePicker.date)
+            tempItem.returnDate = datePicker.date
         } else if warrantyDateTextField.isFirstResponder {
-            warrantyDateTextField.text = "\(datePicker.date)"
-            tempItem?.warrantyDate = datePicker.date
+            dateFormater.dateStyle = .short
+            warrantyDateTextField.text = dateFormater.string(from: datePicker.date)
+            tempItem.warrantyDate = datePicker.date
         }
     }
     // Delete
     @IBAction func deleteItemBtnTapped(_ sender: UIButton) {
+        if let item = item,
+            let category = item.category {
+            ItemController.delete(item: item, fromA: category)
+        }
     }
     
     
@@ -183,5 +236,43 @@ extension AddItemTableViewController: UITextViewDelegate, UITextFieldDelegate {
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         saveToTempItem()
+    }
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == quantityTextField {
+            let currentText = textField.text ?? ""
+            guard let stringRange = Range(range, in: currentText) else { return false }
+            let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+            
+            return updatedText.count <= 4
+        }
+        return true
+    }
+}
+
+//
+// MARK: - Extensions
+//
+extension AddItemTableViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+
+    func pickImageFromLibrary() {
+        imagePickerController.sourceType = .photoLibrary
+        self.present(imagePickerController, animated: true)
+    }
+    func pickImageWithCamera() {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            imagePickerController.sourceType = .camera
+            self.present(imagePickerController, animated: true)
+        } else {
+            print("Camera not available")
+        }
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        tempItem.images.append(image)
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
 }

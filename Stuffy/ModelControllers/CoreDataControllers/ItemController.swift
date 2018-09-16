@@ -17,7 +17,17 @@ class ItemController {
         let _ = Item(category: category, name: name, isFavorite: isFavorite, modelNumber: modelNumber, storePurchasedFrom: storePurchasedFrom, note: note, price: price, quantity: quantity, serialNumber: serialNumber, purchaseDate: purchaseDate, warrantyDate: warrantyDate, returnDate: returnDate)
         CoreDataStack.save()
     }
-    
+    static func createItemFrom(tempItem: TempItem) {
+        let item = Item(tempItem: tempItem)
+        if tempItem.images.count > 1 {
+            tempItem.images.forEach {
+                if let image = $0 {
+                    ImageController.createImageWith(image: image, to: item)
+                }
+            }
+        }
+        CoreDataStack.save()
+    }
     static func update(item: Item, name: String? = nil, isFavorite: Bool? = nil, modelNumber: String? = nil, storePurchasedFrom: String? = nil, note: String? = nil, price: Double? = nil, quantity: Double? = nil, serialNumber: String? = nil, purchaseDate: Date? = nil, warrantyDate: Date? = nil, returnDate: Date? = nil) {
         if let name = name {
             item.name = name

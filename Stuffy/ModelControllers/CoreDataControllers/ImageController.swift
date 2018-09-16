@@ -13,8 +13,7 @@ class ImageController {
     
     // This is a static method that belongs to the class so we do not need an instance
     static func createImageWith(image: UIImage, to item: Item) {
-        guard let imageData = UIImageJPEGRepresentation(image, 0.5) else { return }
-        let _ = Image(item: item, imageData: imageData)
+        let _ = Image(item: item, image: image)
         CoreDataStack.save()
     }
     

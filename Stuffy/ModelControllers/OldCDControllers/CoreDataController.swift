@@ -34,7 +34,7 @@ class CoreDataController {
         
         item.category = category
         
-        createImage(item: item, image: photos)
+        createImage(item: item, images: photos)
         
         CoreDataController.shared.items.append(item)
        
@@ -83,11 +83,10 @@ class CoreDataController {
        }
    }
     
-    func createImage(item: Item, image: [UIImage]){
-        for i in image{
-            guard let imageData = UIImagePNGRepresentation(i) else {return}
+    func createImage(item: Item, images: [UIImage]){
+        for image in images{
             
-            let createdImage = Image(item: item, imageData: imageData)
+            let createdImage = Image(item: item, image: image)
             
             createdImage.item = item
         }
