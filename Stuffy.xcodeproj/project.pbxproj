@@ -34,6 +34,8 @@
 		7EBCE2A121014C050031A9CC /* TotalValueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBCE2A021014C050031A9CC /* TotalValueTableViewCell.swift */; };
 		7EBCE2A521014C6D0031A9CC /* ReturnAndWarrantyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBCE2A421014C6D0031A9CC /* ReturnAndWarrantyTableViewCell.swift */; };
 		7EEDB7CE214C368900AD3AF4 /* TempItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEDB7CD214C368900AD3AF4 /* TempItem.swift */; };
+		7EEDB7D0214F2FE900AD3AF4 /* FullScreenImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEDB7CF214F2FE900AD3AF4 /* FullScreenImageViewController.swift */; };
+		7EEDB7D4214F33A900AD3AF4 /* FullScreenImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EEDB7D3214F33A900AD3AF4 /* FullScreenImageCollectionViewCell.swift */; };
 		7EFBDABA210130AF00820978 /* CurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFBDAB9210130AF00820978 /* CurrencyViewController.swift */; };
 		7EFC782220F577810096238A /* PinPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFC781F20F577810096238A /* PinPadViewController.swift */; };
 		7EFC782320F577810096238A /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EFC782020F577810096238A /* SettingsViewController.swift */; };
@@ -64,7 +66,6 @@
 		F78D660C20E191EC003407E7 /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D660B20E191EC003407E7 /* CoreDataController.swift */; };
 		F78D661120E1A142003407E7 /* MyStuffViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D661020E1A142003407E7 /* MyStuffViewController.swift */; };
 		F78D662A20E2D622003407E7 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D662920E2D622003407E7 /* Colors.swift */; };
-		F78D663A20E421E7003407E7 /* CameraPreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78D663920E421E7003407E7 /* CameraPreviewViewController.swift */; };
 		F78F675120F7CEC7001320D1 /* CameraPreviewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78F675020F7CEC7001320D1 /* CameraPreviewCollectionViewCell.swift */; };
 		F78F675320F7D50D001320D1 /* CameraPreviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78F675220F7D50D001320D1 /* CameraPreviewTableViewCell.swift */; };
 		F78F675A20FE6998001320D1 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78F675820FE6997001320D1 /* CategoryTableViewCell.swift */; };
@@ -106,6 +107,8 @@
 		7EBCE2A021014C050031A9CC /* TotalValueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalValueTableViewCell.swift; sourceTree = "<group>"; };
 		7EBCE2A421014C6D0031A9CC /* ReturnAndWarrantyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnAndWarrantyTableViewCell.swift; sourceTree = "<group>"; };
 		7EEDB7CD214C368900AD3AF4 /* TempItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempItem.swift; sourceTree = "<group>"; };
+		7EEDB7CF214F2FE900AD3AF4 /* FullScreenImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageViewController.swift; sourceTree = "<group>"; };
+		7EEDB7D3214F33A900AD3AF4 /* FullScreenImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullScreenImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		7EFBDAB9210130AF00820978 /* CurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyViewController.swift; sourceTree = "<group>"; };
 		7EFC781F20F577810096238A /* PinPadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinPadViewController.swift; sourceTree = "<group>"; };
 		7EFC782020F577810096238A /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -136,7 +139,6 @@
 		F78D660B20E191EC003407E7 /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
 		F78D661020E1A142003407E7 /* MyStuffViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStuffViewController.swift; sourceTree = "<group>"; };
 		F78D662920E2D622003407E7 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		F78D663920E421E7003407E7 /* CameraPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewViewController.swift; sourceTree = "<group>"; };
 		F78F675020F7CEC7001320D1 /* CameraPreviewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewCollectionViewCell.swift; sourceTree = "<group>"; };
 		F78F675220F7D50D001320D1 /* CameraPreviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraPreviewTableViewCell.swift; sourceTree = "<group>"; };
 		F78F675820FE6997001320D1 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 			isa = PBXGroup;
 			children = (
 				7E24D1282141E94A0013D70A /* AddItemTableViewController.swift */,
+				7EEDB7CF214F2FE900AD3AF4 /* FullScreenImageViewController.swift */,
 			);
 			path = "New Code";
 			sourceTree = "<group>";
@@ -238,7 +241,6 @@
 				F7789D1B2108EC9400ED22FE /* ItemDetailViewController.swift */,
 				F77BB3E520EAEB1700D2FCD4 /* OldAddItemTableViewController.swift */,
 				F7A08C2120EEC97200E37754 /* CategoriesDetailViewController.swift */,
-				F78D663920E421E7003407E7 /* CameraPreviewViewController.swift */,
 				7E19043C20EC7AAA004DBE2D /* Scan ViewControllers */,
 			);
 			path = "Tab3 CRUD Item";
@@ -341,6 +343,22 @@
 			path = DashboardCells;
 			sourceTree = "<group>";
 		};
+		7EEDB7D1214F336000AD3AF4 /* NewCode */ = {
+			isa = PBXGroup;
+			children = (
+				7EEDB7D2214F336E00AD3AF4 /* Tab3 */,
+			);
+			path = NewCode;
+			sourceTree = "<group>";
+		};
+		7EEDB7D2214F336E00AD3AF4 /* Tab3 */ = {
+			isa = PBXGroup;
+			children = (
+				7EEDB7D3214F33A900AD3AF4 /* FullScreenImageCollectionViewCell.swift */,
+			);
+			path = Tab3;
+			sourceTree = "<group>";
+		};
 		7EFC782620F577F40096238A /* SettingCells */ = {
 			isa = PBXGroup;
 			children = (
@@ -436,6 +454,7 @@
 		F78D661520E1A265003407E7 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7EEDB7D1214F336000AD3AF4 /* NewCode */,
 				F7789D22210BCE9F00ED22FE /* ItemDetailCustomCells */,
 				7EBCE29721014B390031A9CC /* DashboardCells */,
 				F78F675820FE6997001320D1 /* CategoryTableViewCell.swift */,
@@ -548,7 +567,6 @@
 				F78D662A20E2D622003407E7 /* Colors.swift in Sources */,
 				F78F675320F7D50D001320D1 /* CameraPreviewTableViewCell.swift in Sources */,
 				7EFC782420F577810096238A /* DashboardViewController.swift in Sources */,
-				F78D663A20E421E7003407E7 /* CameraPreviewViewController.swift in Sources */,
 				7E9EE96E20E317AD00F1CD79 /* CustomTabBarMainView.swift in Sources */,
 				F7D9D97E20F2F75F00F429A1 /* FavoriteItemsViewController.swift in Sources */,
 				170E022220EE8D730012405F /* OldCategoryController.swift in Sources */,
@@ -577,6 +595,7 @@
 				F731E97720F2FEE100ACE318 /* HomeScreenCategoryCell.swift in Sources */,
 				F77BB3E420E6DA9900D2FCD4 /* CategoriesViewController.swift in Sources */,
 				7E9EE90320E1811B00F1CD79 /* AppDelegate.swift in Sources */,
+				7EEDB7D0214F2FE900AD3AF4 /* FullScreenImageViewController.swift in Sources */,
 				7EBCE2A121014C050031A9CC /* TotalValueTableViewCell.swift in Sources */,
 				F7789D28210BCF2000ED22FE /* ItemInfoCell.swift in Sources */,
 				1770ACE220E6CC25005DBDF5 /* OldItemController.swift in Sources */,
@@ -589,6 +608,7 @@
 				F7789D202108EEC000ED22FE /* ItemDetailCollectionViewCell.swift in Sources */,
 				177881B321025D7800FF76B9 /* UIImageExtensions.swift in Sources */,
 				7EBCE2A521014C6D0031A9CC /* ReturnAndWarrantyTableViewCell.swift in Sources */,
+				7EEDB7D4214F33A900AD3AF4 /* FullScreenImageCollectionViewCell.swift in Sources */,
 				17A46CD120FD7420008E9322 /* OnboardPageControlViewController.swift in Sources */,
 				7EFC782A20F577F50096238A /* DashboardTableViewCell.swift in Sources */,
 				7E19044020EC7AC9004DBE2D /* AutoCropViewController.swift in Sources */,

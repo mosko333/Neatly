@@ -44,12 +44,12 @@
 //    }
 //
 //    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return CoreDataController.shared.allCategories.count
+//        return CategoryController.shared.categories.count
 //    }
 //    
 //    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "categoriesCell", for: indexPath)
-//        let category = CoreDataController.shared.allCategories[indexPath.row]
+//        let category = CategoryController.shared.categories[indexPath.row]
 //        cell.textLabel?.text = category.name
 //    
 //        
@@ -88,7 +88,7 @@
 //            let destinationVC = segue.destination as! UINavigationController
 //            let topVC = destinationVC.topViewController as! AddItemTableViewController
 //            guard let indexPath = tableView.indexPathForSelectedRow else { return }
-//            let categorypicked = CoreDataController.shared.allCategories[indexPath.row]
+//            let categorypicked = CategoryController.shared.categories[indexPath.row]
 //            topVC.categoryPicked = categorypicked
 //        
 //        }
@@ -97,7 +97,7 @@
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        guard let navVC = self.presentingViewController as? UINavigationController else { return }
 //        guard let indexPath = tableView.indexPathForSelectedRow else { return }
-//        let categorypicked = CoreDataController.shared.allCategories[indexPath.row]
+//        let categorypicked = CategoryController.shared.categories[indexPath.row]
 //        
 //        for viewController in navVC.viewControllers {
 //            if let newAddItemVC = viewController as? AddItemTableViewController {

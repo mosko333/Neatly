@@ -42,7 +42,7 @@ class TotalValueTableViewCell: UITableViewCell {
         return totalValue
     }
     func getTotalAmountofCategories() -> Int {
-       return CoreDataController.shared.allCategories.count
+       return CategoryController.shared.categories.count
     }
     func getTotalAmountofItems() -> Int {
         return CoreDataController.shared.items.count

@@ -58,15 +58,15 @@ class CoreDataController {
         
     }
     
-    func createCategory(name: String){
-        
-        let categoryName = name.trimmingCharacters(in: .whitespaces)
-        
-      let category = Category(name: categoryName, isFavorite: false)
-        CoreDataController.shared.allCategories.append(category)
-        
-        CoreDataStack.save()
-    }
+//    func createCategory(name: String){
+//        
+//        let categoryName = name.trimmingCharacters(in: .whitespaces)
+//        
+//      let category = Category(name: categoryName, isFavorite: false)
+//        CoreDataController.shared.allCategories.append(category)
+//        
+//        CoreDataStack.save()
+//    }
     
     func deleteCategory(with category: Category){
         

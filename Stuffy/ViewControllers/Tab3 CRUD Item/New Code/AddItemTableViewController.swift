@@ -56,9 +56,11 @@ class AddItemTableViewController: UITableViewController {
     func updateImages() {
         if tempItem.images.count > 0 {
             cameraBigBackgroundImageView.image = tempItem.images[0]
-        }
-        if tempItem.images.count > 1 {
-            cameraSummeryBtn.setImage(tempItem.images[1], for: .normal)
+            if tempItem.images.count > 1 {
+                cameraSummeryBtn.setImage(tempItem.images[1], for: .normal)
+            } else {
+                cameraSummeryBtn.setImage(tempItem.images[0], for: .normal)
+            }
         }
     }
     func setupDateFieldKeyboards() {
@@ -143,17 +145,17 @@ class AddItemTableViewController: UITableViewController {
     }
     // Select input media
     @IBAction func mediaInputTypeBtnTapped(_ sender: UIButton) {
-                switch sender.tag {
-                case 0:
-                    pickImageFromLibrary()
-                case 1:
-                    pickImageWithCamera()
-                case 2:
-                    // Scan
-                    navigationController?.performSegue(withIdentifier: "toNavControllerAutoCrop", sender: self)
-                default:
-                    return
-                }
+        switch sender.tag {
+        case 0:
+            pickImageFromLibrary()
+        case 1:
+            pickImageWithCamera()
+        case 2:
+            // Scan
+            navigationController?.performSegue(withIdentifier: "toNavControllerAutoCrop", sender: self)
+        default:
+            return
+        }
     }
     // Text field controls
     @IBAction func quantityChangedBtnTapped(_ sender: UIButton) {
@@ -161,8 +163,8 @@ class AddItemTableViewController: UITableViewController {
             var quantity = Int(quantityLabel) else { return }
         switch sender.tag {
         case 0:
-               if quantity > 1 {
-                    quantity -= 1
+            if quantity > 1 {
+                quantity -= 1
             }
         case 1:
             if quantity < 10000 {
@@ -216,8 +218,14 @@ class AddItemTableViewController: UITableViewController {
     
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "toFullScreenImageVC",
+            let destinationVC = segue.destination as? FullScreenImageViewController {
+            destinationVC.tempItem = tempItem
+        }
+        if segue.identifier == "toSelectCatVC",
+            let destinationVC = segue.destination as? CategoriesViewController {
+            destinationVC.isHomeVC = false
+        }
     }
 }
 
@@ -253,7 +261,7 @@ extension AddItemTableViewController: UITextViewDelegate, UITextFieldDelegate {
 // MARK: - Extensions
 //
 extension AddItemTableViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-
+    
     func pickImageFromLibrary() {
         imagePickerController.sourceType = .photoLibrary
         self.present(imagePickerController, animated: true)

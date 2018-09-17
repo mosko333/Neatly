@@ -133,7 +133,7 @@
 //
 //}
 //func sortFavoriteCategories() {
-//    for category in CoreDataController.shared.allCategories{
+//    for category in CategoryController.shared.categories{
 //        if category.isFavorite == true {
 //            favoritedCategories.append(category)
 //        }
