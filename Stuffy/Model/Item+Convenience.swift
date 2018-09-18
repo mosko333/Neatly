@@ -36,9 +36,7 @@ extension Item {
         self.modelNumber = tempItem.modelNumber
         self.storePurchasedFrom = tempItem.storePurchasedFrom
         self.note = tempItem.note
-        if let priceString = tempItem.price, !priceString.isEmpty, let price = Double(priceString) {
-            self.price = price
-        }
+        self.price = tempItem.price ?? 0
         self.quantity = tempItem.quantity ?? 1.0
         self.serialNumber = tempItem.serialNumber
         self.purchaseDate = tempItem.purchaseDate

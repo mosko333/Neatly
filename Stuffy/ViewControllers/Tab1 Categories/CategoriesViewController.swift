@@ -9,18 +9,18 @@
 import UIKit
 import CoreData
 
-class CategoriesViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class CategoriesViewController: UIViewController {
     //
     // MARK: - Properties
     //
     // This view can be used as the homeVC or as to select a catagory from AddItemVC
     var isHomeVC = true
-    var categoryPicked: Category? {
-        didSet {
-            guard let catName = categoryPicked?.name else { return }
-            print("category picked \(catName)")
-        }
-    }
+//    var categoryPicked: Category? {
+//        didSet {
+//            guard let catName = categoryPicked?.name else { return }
+//            print("category picked \(catName)")
+//        }
+//    }
     //
     // MARK: - Outlets
     //
@@ -100,7 +100,43 @@ class CategoriesViewController: UIViewController, UITableViewDelegate, UITableVi
         return linkRange
     }
     
+    //
+    // MARK: - Navigation
+    //
     
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //        if segue.identifier == "MyStuffSegue" {
+    //
+    //            guard let indexPath = tableView.indexPathForSelectedRow else { return }
+    //
+    //            let categorypicked =  CategoryController.shared.categories[indexPath.row]
+    //            if let destinationVC = segue.destination as? MyStuffViewController {
+    //                destinationVC.categoryPicked = categorypicked
+    //            }
+    //        }
+    //    }
+    
+    
+    //
+    // MARK: - Actions
+    //
+    @IBAction func addCatBtnTapped(_ sender: UIButton) {
+        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
+            self.addCatViewHightConstraint.constant = 61
+            self.addCatBtnHightConstraint.constant = 0
+            self.addCatBtn.titleLabel?.alpha = 0
+            self.view.layoutIfNeeded()
+        }, completion: {(_) in
+            self.addCatBtn.isHidden = true
+            self.categoryTextField.becomeFirstResponder()
+        })
+    }
+}
+
+//
+// MARK: - Extensions
+//
+extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
     //TABLEVIEW DATA SOURCE FUNCTIONS
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -133,34 +169,7 @@ class CategoriesViewController: UIViewController, UITableViewDelegate, UITableVi
         //return [editAction,deleteAction]
         return [deleteAction]
     }
-    
-    // MARK: - Navigation
-    
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //        if segue.identifier == "MyStuffSegue" {
-    //
-    //            guard let indexPath = tableView.indexPathForSelectedRow else { return }
-    //
-    //            let categorypicked =  CategoryController.shared.categories[indexPath.row]
-    //            if let destinationVC = segue.destination as? MyStuffViewController {
-    //                destinationVC.categoryPicked = categorypicked
-    //            }
-    //        }
-    //    }
-    @IBAction func addCatBtnTapped(_ sender: UIButton) {
-        UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
-            self.addCatViewHightConstraint.constant = 61
-            self.addCatBtnHightConstraint.constant = 0
-            self.addCatBtn.titleLabel?.alpha = 0
-            self.view.layoutIfNeeded()
-        }, completion: {(_) in
-            self.addCatBtn.isHidden = true
-            self.categoryTextField.becomeFirstResponder()
-        })
-    }
 }
-
-
 extension CategoriesViewController: CategoryTableViewCellDelegate {
     func categoryFavorited(_ cell: CategoryTableViewCell) {
         
@@ -177,42 +186,42 @@ extension CategoriesViewController: CategoryTableViewCellDelegate {
     }
 }
 
-extension CategoriesViewController {
-    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.beginUpdates()
-    }
-    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-        tableView.endUpdates()
-    }
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-        switch type {
-        case .delete:
-            tableView.deleteRows(at: [indexPath!], with: .automatic)
-            
-        case .move:
-            tableView.moveRow(at: indexPath!, to: newIndexPath!)
-            
-        case .update:
-            tableView.reloadRows(at: [indexPath!], with: .automatic)
-            
-        case .insert:
-            tableView.insertRows(at: [newIndexPath!], with: .automatic)
-        }
-    }
-    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-        
-        let indexSet = IndexSet(integer: sectionIndex)
-        switch type{
-        case .insert:
-            tableView.insertSections(indexSet, with: .automatic)
-            
-        case .delete:
-            tableView.deleteSections(indexSet, with: .automatic)
-            
-        default:
-            return
-        }
-    }}
+//extension CategoriesViewController {
+//    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+//        tableView.beginUpdates()
+//    }
+//    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+//        tableView.endUpdates()
+//    }
+//    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+//        switch type {
+//        case .delete:
+//            tableView.deleteRows(at: [indexPath!], with: .automatic)
+//
+//        case .move:
+//            tableView.moveRow(at: indexPath!, to: newIndexPath!)
+//
+//        case .update:
+//            tableView.reloadRows(at: [indexPath!], with: .automatic)
+//
+//        case .insert:
+//            tableView.insertRows(at: [newIndexPath!], with: .automatic)
+//        }
+//    }
+//    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+//
+//        let indexSet = IndexSet(integer: sectionIndex)
+//        switch type{
+//        case .insert:
+//            tableView.insertSections(indexSet, with: .automatic)
+//
+//        case .delete:
+//            tableView.deleteSections(indexSet, with: .automatic)
+//
+//        default:
+//            return
+//        }
+//    }}
 
 
 
@@ -241,7 +250,7 @@ extension CategoriesViewController: UITextFieldDelegate {
         
         if let categoryName = categoryTextField.text, categoryName.count > 0{
             
-            //CoreDataController.shared.createCategory(name: categoryName)
+            CategoryController.shared.create(categoryName: categoryName)
             
             tableView.reloadData()
             

@@ -26,6 +26,7 @@
 		7E19044020EC7AC9004DBE2D /* AutoCropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E19043E20EC7AC9004DBE2D /* AutoCropViewController.swift */; };
 		7E232A5B213F513A0022A35D /* CustomIBDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E232A5A213F513A0022A35D /* CustomIBDesignableView.swift */; };
 		7E24D1292141E94A0013D70A /* AddItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E24D1282141E94A0013D70A /* AddItemTableViewController.swift */; };
+		7E35405521504F5800EF767F /* SummeryItemImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E35405421504F5800EF767F /* SummeryItemImageCollectionViewCell.swift */; };
 		7E9EE90320E1811B00F1CD79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9EE90220E1811B00F1CD79 /* AppDelegate.swift */; };
 		7E9EE96A20E3119D00F1CD79 /* CustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9EE96920E3119D00F1CD79 /* CustomTabBarViewController.swift */; };
 		7E9EE96E20E317AD00F1CD79 /* CustomTabBarMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9EE96D20E317AD00F1CD79 /* CustomTabBarMainView.swift */; };
@@ -96,6 +97,7 @@
 		7E19043E20EC7AC9004DBE2D /* AutoCropViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoCropViewController.swift; sourceTree = "<group>"; };
 		7E232A5A213F513A0022A35D /* CustomIBDesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIBDesignableView.swift; sourceTree = "<group>"; };
 		7E24D1282141E94A0013D70A /* AddItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemTableViewController.swift; sourceTree = "<group>"; };
+		7E35405421504F5800EF767F /* SummeryItemImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummeryItemImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		7E9EE8FF20E1811B00F1CD79 /* Stuffy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stuffy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E9EE90220E1811B00F1CD79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E9EE90920E1811C00F1CD79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 			isa = PBXGroup;
 			children = (
 				7EEDB7D3214F33A900AD3AF4 /* FullScreenImageCollectionViewCell.swift */,
+				7E35405421504F5800EF767F /* SummeryItemImageCollectionViewCell.swift */,
 			);
 			path = Tab3;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 			isa = PBXGroup;
 			children = (
 				7EEDB7D1214F336000AD3AF4 /* NewCode */,
+				7E9EE96D20E317AD00F1CD79 /* CustomTabBarMainView.swift */,
 				F7789D22210BCE9F00ED22FE /* ItemDetailCustomCells */,
 				7EBCE29721014B390031A9CC /* DashboardCells */,
 				F78F675820FE6997001320D1 /* CategoryTableViewCell.swift */,
@@ -467,7 +471,6 @@
 				F78F675020F7CEC7001320D1 /* CameraPreviewCollectionViewCell.swift */,
 				F78F675220F7D50D001320D1 /* CameraPreviewTableViewCell.swift */,
 				7E19043A20EC7A8B004DBE2D /* AutoCropCameraScanner.swift */,
-				7E9EE96D20E317AD00F1CD79 /* CustomTabBarMainView.swift */,
 				F7789D1F2108EEC000ED22FE /* ItemDetailCollectionViewCell.swift */,
 				F77BB3E720EAEC2A00D2FCD4 /* AddItemCustomCells */,
 			);
@@ -617,6 +620,7 @@
 				7E0F581B2138F00000F15B4A /* Image+Convenience.swift in Sources */,
 				F77BB3E620EAEB1700D2FCD4 /* OldAddItemTableViewController.swift in Sources */,
 				F7A08C2220EEC97200E37754 /* CategoriesDetailViewController.swift in Sources */,
+				7E35405521504F5800EF767F /* SummeryItemImageCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

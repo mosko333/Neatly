@@ -47,6 +47,7 @@ class CustomTabBarViewController: UITabBarController, CustomTabBarViewMainDelega
     /// Center addButton is pressed, so this func presents the addItemVC modely
     func addItemTabPressed() {
         // TODO - Do Model segue here to addItem screen
-        present(AddItemTableViewController(), animated: true)
+        //present(AddItemTableViewController(), animated: true)
+        performSegue(withIdentifier: "toAddItemVC", sender: self)
     }
 }

@@ -38,7 +38,7 @@ class FullScreenImageViewController: UIViewController {
 //
 // MARK: - Extensions
 //
-extension FullScreenImageViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension FullScreenImageViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if let tempItem = tempItem,
             tempItem.images.count > 0 {
@@ -67,6 +67,7 @@ extension FullScreenImageViewController: UICollectionViewDelegate, UICollectionV
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         pageController.currentPage = indexPath.row
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
