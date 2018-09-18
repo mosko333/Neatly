@@ -14,7 +14,7 @@ extension Image {
         // Initialize into the manage object context
         self.init(context: context)
         self.item = item
-        if let imageData = UIImageJPEGRepresentation(image, 0.5) {
+        if let imageData = image.jpegData(compressionQuality: 0.5) {
             self.imageData = imageData
         }
     }

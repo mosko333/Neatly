@@ -26,12 +26,15 @@
 		7E19044020EC7AC9004DBE2D /* AutoCropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E19043E20EC7AC9004DBE2D /* AutoCropViewController.swift */; };
 		7E232A5B213F513A0022A35D /* CustomIBDesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E232A5A213F513A0022A35D /* CustomIBDesignableView.swift */; };
 		7E24D1292141E94A0013D70A /* AddItemTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E24D1282141E94A0013D70A /* AddItemTableViewController.swift */; };
+<<<<<<< Updated upstream
+		7E35405521504F5800EF767F /* SummeryItemImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E35405421504F5800EF767F /* SummeryItemImageCollectionViewCell.swift */; };
+=======
 		7E482DC62150BE93004188E4 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E482DC52150BE93004188E4 /* OnboardingViewController.swift */; };
 		7E482DCA21516CCE004188E4 /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E482DC921516CCE004188E4 /* OnboardingCollectionViewCell.swift */; };
+>>>>>>> Stashed changes
 		7E9EE90320E1811B00F1CD79 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9EE90220E1811B00F1CD79 /* AppDelegate.swift */; };
 		7E9EE96A20E3119D00F1CD79 /* CustomTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9EE96920E3119D00F1CD79 /* CustomTabBarViewController.swift */; };
 		7E9EE96E20E317AD00F1CD79 /* CustomTabBarMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9EE96D20E317AD00F1CD79 /* CustomTabBarMainView.swift */; };
-		7EAAB7772151BC50003AD419 /* SummeryItemImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EAAB7762151BC50003AD419 /* SummeryItemImageCollectionViewCell.swift */; };
 		7EADE39120FE64540023215C /* StartCheckScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EADE39020FE64540023215C /* StartCheckScreenViewController.swift */; };
 		7EBCE29F21014BE20031A9CC /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBCE29E21014BE20031A9CC /* HeaderTableViewCell.swift */; };
 		7EBCE2A121014C050031A9CC /* TotalValueTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBCE2A021014C050031A9CC /* TotalValueTableViewCell.swift */; };
@@ -102,15 +105,18 @@
 		7E19043E20EC7AC9004DBE2D /* AutoCropViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoCropViewController.swift; sourceTree = "<group>"; };
 		7E232A5A213F513A0022A35D /* CustomIBDesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomIBDesignableView.swift; sourceTree = "<group>"; };
 		7E24D1282141E94A0013D70A /* AddItemTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddItemTableViewController.swift; sourceTree = "<group>"; };
+<<<<<<< Updated upstream
+		7E35405421504F5800EF767F /* SummeryItemImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummeryItemImageCollectionViewCell.swift; sourceTree = "<group>"; };
+=======
 		7E482DC52150BE93004188E4 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		7E482DC921516CCE004188E4 /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
+>>>>>>> Stashed changes
 		7E9EE8FF20E1811B00F1CD79 /* Stuffy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Stuffy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E9EE90220E1811B00F1CD79 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E9EE90920E1811C00F1CD79 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7E9EE90E20E1811C00F1CD79 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E9EE96920E3119D00F1CD79 /* CustomTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarViewController.swift; sourceTree = "<group>"; };
 		7E9EE96D20E317AD00F1CD79 /* CustomTabBarMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarMainView.swift; sourceTree = "<group>"; };
-		7EAAB7762151BC50003AD419 /* SummeryItemImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummeryItemImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		7EADE39020FE64540023215C /* StartCheckScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartCheckScreenViewController.swift; sourceTree = "<group>"; };
 		7EBCE29E21014BE20031A9CC /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
 		7EBCE2A021014C050031A9CC /* TotalValueTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalValueTableViewCell.swift; sourceTree = "<group>"; };
@@ -387,8 +393,8 @@
 		7EEDB7D2214F336E00AD3AF4 /* Tab3 */ = {
 			isa = PBXGroup;
 			children = (
-				7EAAB7762151BC50003AD419 /* SummeryItemImageCollectionViewCell.swift */,
 				7EEDB7D3214F33A900AD3AF4 /* FullScreenImageCollectionViewCell.swift */,
+				7E35405421504F5800EF767F /* SummeryItemImageCollectionViewCell.swift */,
 			);
 			path = Tab3;
 			sourceTree = "<group>";
@@ -652,12 +658,12 @@
 				17A46CD120FD7420008E9322 /* OnboardPageControlViewController.swift in Sources */,
 				7EFC782A20F577F50096238A /* DashboardTableViewCell.swift in Sources */,
 				7E19044020EC7AC9004DBE2D /* AutoCropViewController.swift in Sources */,
-				7EAAB7772151BC50003AD419 /* SummeryItemImageCollectionViewCell.swift in Sources */,
 				F77BB3EB20EC127A00D2FCD4 /* NameandCategoryCell.swift in Sources */,
 				F78F675B20FE6998001320D1 /* CustomUINavigationBar.swift in Sources */,
 				7E0F581B2138F00000F15B4A /* Image+Convenience.swift in Sources */,
 				F77BB3E620EAEB1700D2FCD4 /* OldAddItemTableViewController.swift in Sources */,
 				F7A08C2220EEC97200E37754 /* CategoriesDetailViewController.swift in Sources */,
+				7E35405521504F5800EF767F /* SummeryItemImageCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

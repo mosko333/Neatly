@@ -47,7 +47,7 @@ class NotesCell: UITableViewCell {
         let placeHolderText = "Add Notes"
         let attributedText = NSMutableAttributedString(string: placeHolderText)
         
-        attributedText.addAttributes([NSAttributedStringKey.foregroundColor:Colors.stuffyLightGray, NSAttributedStringKey.font: UIFont(name: "Avenir-Roman", size: 16)!], range: getRangeOfSubString(subString: "Add Notes", fromString: placeHolderText))
+        attributedText.addAttributes([NSAttributedString.Key.foregroundColor:Colors.stuffyLightGray, NSAttributedString.Key.font: UIFont(name: "Avenir-Roman", size: 16)!], range: getRangeOfSubString(subString: "Add Notes", fromString: placeHolderText))
         
         notesTextView.attributedText = attributedText
     }

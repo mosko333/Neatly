@@ -37,7 +37,7 @@ class AutoCropViewController: UIViewController {
     }
     
     @IBAction func focusGesture(_ sender: UITapGestureRecognizer) {
-        if sender.state == UIGestureRecognizerState.recognized {
+        if sender.state == UIGestureRecognizer.State.recognized {
             let location: CGPoint = sender.location(in: self.cameraViewController)
             focusIndicatorAnimate(to: location)
             cameraViewController.focus(at: location, completionHandler: {() -> Void in

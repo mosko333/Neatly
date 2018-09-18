@@ -15,30 +15,30 @@ extension UIImage {
         var transform: CGAffineTransform = CGAffineTransform.identity
         
         switch imageOrientation {
-        case UIImageOrientation.down, UIImageOrientation.downMirrored:
+        case UIImage.Orientation.down, UIImage.Orientation.downMirrored:
             transform = transform.translatedBy(x: size.width, y: size.height)
             transform = transform.rotated(by: CGFloat(Double.pi))
             break
-        case UIImageOrientation.left, UIImageOrientation.leftMirrored:
+        case UIImage.Orientation.left, UIImage.Orientation.leftMirrored:
             transform = transform.translatedBy(x: size.width, y: 0)
             transform = transform.rotated(by: CGFloat(Double.pi / 2))
             break
-        case UIImageOrientation.right, UIImageOrientation.rightMirrored:
+        case UIImage.Orientation.right, UIImage.Orientation.rightMirrored:
             transform = transform.translatedBy(x: 0, y: size.height)
             transform = transform.rotated(by: CGFloat(Double.pi / 2))
             break
-        case UIImageOrientation.up, UIImageOrientation.upMirrored:
+        case UIImage.Orientation.up, UIImage.Orientation.upMirrored:
             break
         }
         switch imageOrientation {
-        case UIImageOrientation.upMirrored, UIImageOrientation.downMirrored:
+        case UIImage.Orientation.upMirrored, UIImage.Orientation.downMirrored:
             transform.translatedBy(x: size.width, y: 0)
             transform.scaledBy(x: -1, y: 1)
             break
-        case UIImageOrientation.leftMirrored, UIImageOrientation.rightMirrored:
+        case UIImage.Orientation.leftMirrored, UIImage.Orientation.rightMirrored:
             transform.translatedBy(x: size.height, y: 0)
             transform.scaledBy(x: -1, y: 1)
-        case UIImageOrientation.up, UIImageOrientation.down, UIImageOrientation.left, UIImageOrientation.right:
+        case UIImage.Orientation.up, UIImage.Orientation.down, UIImage.Orientation.left, UIImage.Orientation.right:
             break
         }
         
@@ -47,7 +47,7 @@ extension UIImage {
         ctx.concatenate(transform)
         
         switch imageOrientation {
-        case UIImageOrientation.left, UIImageOrientation.leftMirrored, UIImageOrientation.right, UIImageOrientation.rightMirrored:
+        case UIImage.Orientation.left, UIImage.Orientation.leftMirrored, UIImage.Orientation.right, UIImage.Orientation.rightMirrored:
             ctx.draw(self.cgImage!, in: CGRect(origin: CGPoint.zero, size: size))
         default:
             ctx.draw(self.cgImage!, in: CGRect(origin: CGPoint.zero, size: size))

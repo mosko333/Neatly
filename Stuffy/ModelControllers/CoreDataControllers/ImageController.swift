@@ -18,7 +18,7 @@ class ImageController {
     }
     
     static func update(image: Image, newPictuer: UIImage) {
-        guard let imageData = UIImageJPEGRepresentation(newPictuer, 0.5) else { return }
+        guard let imageData = newPictuer.jpegData(compressionQuality: 0.5) else { return }
         image.imageData = imageData
         CoreDataStack.save()
     }

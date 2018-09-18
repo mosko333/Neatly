@@ -9,18 +9,23 @@
 import UIKit
 import CoreData
 
+protocol CatergorieSelectedDelegate: class {
+    func selected(catergory: Category)
+}
+
 class CategoriesViewController: UIViewController {
     //
     // MARK: - Properties
     //
     // This view can be used as the homeVC or as to select a catagory from AddItemVC
     var isHomeVC = true
-//    var categoryPicked: Category? {
-//        didSet {
-//            guard let catName = categoryPicked?.name else { return }
-//            print("category picked \(catName)")
-//        }
-//    }
+    var categoryPicked: Category? {
+        didSet {
+            guard let catName = categoryPicked?.name else { return }
+            print("category picked \(catName)")
+        }
+    }
+    weak var delegate: CatergorieSelectedDelegate?
     //
     // MARK: - Outlets
     //
@@ -85,9 +90,9 @@ class CategoriesViewController: UIViewController {
         let placeHolderText = "+  Add a Category"
         let attributedText = NSMutableAttributedString(string: placeHolderText)
         
-        attributedText.addAttributes([NSAttributedStringKey.foregroundColor: Colors.stuffyRoyalBlue, NSAttributedStringKey.font: UIFont(name: "Avenir-Heavy", size: 16)!], range: getRangeOfSubString(subString: "+", fromString: placeHolderText)) // Blue color attribute
+        attributedText.addAttributes([NSAttributedString.Key.foregroundColor: Colors.stuffyRoyalBlue, NSAttributedString.Key.font: UIFont(name: "Avenir-Heavy", size: 16)!], range: getRangeOfSubString(subString: "+", fromString: placeHolderText)) // Blue color attribute
         
-        attributedText.addAttributes([NSAttributedStringKey.foregroundColor: Colors.stuffyDarkGray, NSAttributedStringKey.font: UIFont(name: "Avenir-Heavy", size: 16)!], range: getRangeOfSubString(subString: "Add a Category", fromString: placeHolderText)) // Dark Gray color attribute
+        attributedText.addAttributes([NSAttributedString.Key.foregroundColor: Colors.stuffyDarkGray, NSAttributedString.Key.font: UIFont(name: "Avenir-Heavy", size: 16)!], range: getRangeOfSubString(subString: "Add a Category", fromString: placeHolderText)) // Dark Gray color attribute
         
         categoryTextField.attributedText = attributedText
     }

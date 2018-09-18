@@ -402,14 +402,26 @@ extension AddItemTableViewController: UINavigationControllerDelegate, UIImagePic
             print("Camera not available")
         }
     }
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
+        let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as! UIImage
         tempItem.images.append(image)
         picker.dismiss(animated: true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
+    }
+    // Helper function inserted by Swift 4.2 migrator.
+    fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+        return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+    }
+    
+    // Helper function inserted by Swift 4.2 migrator.
+    fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+        return input.rawValue
     }
 }
 
@@ -418,7 +430,7 @@ extension AddItemTableViewController: UICollectionViewDelegate, UICollectionView
         summeryPageController.numberOfPages = tempItem.images.count
         return tempItem.images.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "summeryCell", for: indexPath) as! SummeryItemImageCollectionViewCell
         cell.itemImage.image = tempItem.images[indexPath.row]
@@ -429,7 +441,7 @@ extension AddItemTableViewController: UICollectionViewDelegate, UICollectionView
         let offSet = scrollView.contentOffset.x
         let width = scrollView.frame.width
         let horizontalCenter = width / 2
-        
+
         summeryPageController.currentPage = Int(offSet + horizontalCenter) / Int(width)
     }
 }
@@ -441,13 +453,13 @@ extension AddItemTableViewController: SummeryItemImageDelegate {
             summeryCollectionView.deleteItems(at: [indexPath])
         }
     }
-    
+
     func addPhoto() {
         isItemSummery = false
         setupNavBar()
         tableView.reloadData()
     }
-    
+
     func updateCover(cell: SummeryItemImageCollectionViewCell) {
         if let indexPath = summeryCollectionView.indexPath(for: cell) {
             let image = cell.itemImage.image
@@ -462,12 +474,4 @@ extension AddItemTableViewController: SummeryItemImageDelegate {
         }
     }
 }
-
-
-
-
-
-
-
-
 
