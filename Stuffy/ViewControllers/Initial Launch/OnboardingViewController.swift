@@ -38,6 +38,9 @@ class OnboardingViewController: UIViewController {
     // MARK: - Actions
     //
     @IBAction func skipDoneBtnTapped(_ sender: UIButton) {
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = mainStoryboard.instantiateViewController(withIdentifier: "CustomTabBarViewContoller") as! CustomTabBarViewController
+        UIApplication.shared.keyWindow?.rootViewController = viewController
     }
 }
 
@@ -60,8 +63,18 @@ extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDa
         }
         return UICollectionViewCell()
     }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        pageController.currentPage = indexPath.row
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offSet = scrollView.contentOffset.x
+        let width = scrollView.frame.width
+        let horizontalCenter = width / 2
+        pageController.currentPage = Int(offSet + horizontalCenter) / Int(width)
+        print(offSet)
+        if offSet >= 415
+        {
+            skipDoneBtn.setTitle("DONE", for: .normal)
+        } else {
+            skipDoneBtn.setTitle("SKIP", for: .normal)
+        }
     }
 }

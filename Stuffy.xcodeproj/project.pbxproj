@@ -11,8 +11,6 @@
 		170E022220EE8D730012405F /* OldCategoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170E022120EE8D730012405F /* OldCategoryController.swift */; };
 		1770ACE220E6CC25005DBDF5 /* OldItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1770ACE120E6CC25005DBDF5 /* OldItemController.swift */; };
 		177881B321025D7800FF76B9 /* UIImageExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177881B221025D7700FF76B9 /* UIImageExtensions.swift */; };
-		17A46CC920FD482C008E9322 /* OnboardingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A46CC820FD482C008E9322 /* OnboardingPageViewController.swift */; };
-		17A46CD120FD7420008E9322 /* OnboardPageControlViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A46CD020FD7420008E9322 /* OnboardPageControlViewController.swift */; };
 		7E0F58122138DFD500F15B4A /* Stuffy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F58102138DFD500F15B4A /* Stuffy.xcdatamodeld */; };
 		7E0F58152138E5A900F15B4A /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F58142138E5A900F15B4A /* CoreDataStack.swift */; };
 		7E0F58172138EC4800F15B4A /* Category+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E0F58162138EC4800F15B4A /* Category+Convenience.swift */; };
@@ -87,8 +85,6 @@
 		170E022120EE8D730012405F /* OldCategoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldCategoryController.swift; sourceTree = "<group>"; };
 		1770ACE120E6CC25005DBDF5 /* OldItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldItemController.swift; sourceTree = "<group>"; };
 		177881B221025D7700FF76B9 /* UIImageExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtensions.swift; sourceTree = "<group>"; };
-		17A46CC820FD482C008E9322 /* OnboardingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingPageViewController.swift; sourceTree = "<group>"; };
-		17A46CD020FD7420008E9322 /* OnboardPageControlViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardPageControlViewController.swift; sourceTree = "<group>"; };
 		7E0F58112138DFD500F15B4A /* Stuffy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Stuffy.xcdatamodel; sourceTree = "<group>"; };
 		7E0F58142138E5A900F15B4A /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		7E0F58162138EC4800F15B4A /* Category+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Category+Convenience.swift"; sourceTree = "<group>"; };
@@ -218,15 +214,6 @@
 			path = "New Code";
 			sourceTree = "<group>";
 		};
-		7E482DC72150BE9B004188E4 /* oldCode */ = {
-			isa = PBXGroup;
-			children = (
-				17A46CD020FD7420008E9322 /* OnboardPageControlViewController.swift */,
-				17A46CC820FD482C008E9322 /* OnboardingPageViewController.swift */,
-			);
-			path = oldCode;
-			sourceTree = "<group>";
-		};
 		7E482DC821516C94004188E4 /* InitialLaunch */ = {
 			isa = PBXGroup;
 			children = (
@@ -250,7 +237,6 @@
 		7E86805C213A074100A3B198 /* Initial Launch */ = {
 			isa = PBXGroup;
 			children = (
-				7E482DC72150BE9B004188E4 /* oldCode */,
 				7EADE39020FE64540023215C /* StartCheckScreenViewController.swift */,
 				7E9EE96920E3119D00F1CD79 /* CustomTabBarViewController.swift */,
 				7E482DC52150BE93004188E4 /* OnboardingViewController.swift */,
@@ -596,7 +582,6 @@
 				7E0F581F2138F31300F15B4A /* CategoryController.swift in Sources */,
 				7EFC782220F577810096238A /* PinPadViewController.swift in Sources */,
 				170E022020EE8D160012405F /* OldPhotoController.swift in Sources */,
-				17A46CC920FD482C008E9322 /* OnboardingPageViewController.swift in Sources */,
 				7EFC782320F577810096238A /* SettingsViewController.swift in Sources */,
 				7E0F58152138E5A900F15B4A /* CoreDataStack.swift in Sources */,
 				F78D662A20E2D622003407E7 /* Colors.swift in Sources */,
@@ -649,7 +634,6 @@
 				177881B321025D7800FF76B9 /* UIImageExtensions.swift in Sources */,
 				7EBCE2A521014C6D0031A9CC /* ReturnAndWarrantyTableViewCell.swift in Sources */,
 				7EEDB7D4214F33A900AD3AF4 /* FullScreenImageCollectionViewCell.swift in Sources */,
-				17A46CD120FD7420008E9322 /* OnboardPageControlViewController.swift in Sources */,
 				7EFC782A20F577F50096238A /* DashboardTableViewCell.swift in Sources */,
 				7E19044020EC7AC9004DBE2D /* AutoCropViewController.swift in Sources */,
 				7EAAB7772151BC50003AD419 /* SummeryItemImageCollectionViewCell.swift in Sources */,

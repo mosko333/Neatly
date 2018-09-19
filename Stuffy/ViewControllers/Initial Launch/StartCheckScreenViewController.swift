@@ -30,7 +30,7 @@ class StartCheckScreenViewController: UIViewController {
 //        if UserDefaults.standard.object(forKey: Constants.onboardingKey) == nil {
 //            defaults.set(true, forKey: Constants.onboardingKey)
 //            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
-//            let viewController = mainStoryboard.instantiateViewController(withIdentifier: "OnboardPageControlViewController") as! OnboardPageControlViewController
+//            let viewController = mainStoryboard.instantiateViewController(withIdentifier: "OnboardingViewController") as! OnboardingViewController
 //            UIApplication.shared.keyWindow?.rootViewController = viewController
 //        }
 //        // Takes you to the pin pad if it's password is required
