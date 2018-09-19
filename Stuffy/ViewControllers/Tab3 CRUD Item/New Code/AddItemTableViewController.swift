@@ -352,6 +352,7 @@ class AddItemTableViewController: UITableViewController {
         }
         if segue.identifier == "toSelectCatVC",
             let destinationVC = segue.destination as? CategoriesViewController {
+            destinationVC.delegate = self
             destinationVC.isHomeVC = false
         }
     }
@@ -472,6 +473,13 @@ extension AddItemTableViewController: SummeryItemImageDelegate {
                 self.summeryCollectionView.reloadData()
             }
         }
+    }
+}
+
+extension AddItemTableViewController: CatergorieSelectedDelegate {
+    func selected(catergory: Category) {
+        tempItem.category = catergory
+        catNameLabel.text = catergory.name
     }
 }
 

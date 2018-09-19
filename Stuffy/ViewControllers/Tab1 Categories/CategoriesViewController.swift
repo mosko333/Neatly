@@ -19,12 +19,6 @@ class CategoriesViewController: UIViewController {
     //
     // This view can be used as the homeVC or as to select a catagory from AddItemVC
     var isHomeVC = true
-    var categoryPicked: Category? {
-        didSet {
-            guard let catName = categoryPicked?.name else { return }
-            print("category picked \(catName)")
-        }
-    }
     weak var delegate: CatergorieSelectedDelegate?
     //
     // MARK: - Outlets
@@ -157,22 +151,28 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
         cell.delegate = self
         let category = CategoryController.shared.categories[indexPath.row]
         cell.updateCell(category)
-        
         return cell
     }
-    
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         let deleteAction = UITableViewRowAction(style: .normal, title: "Delete") { (rowAction, indexPath) in
-            //TODO: Delete the row at indexPath here
-            
-            //self.presentDeleteAlertController(indexPathRow: indexPath.row)
+            self.presentDeleteAlertController(indexPathRow: indexPath.row)
         }
         deleteAction.backgroundColor = Colors.stuffyRed
         
         //return [editAction,deleteAction]
         return [deleteAction]
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let category = CategoryController.shared.categories[indexPath.row]
+        delegate?.selected(catergory: category)
+        if !isHomeVC {
+            navigationController?.popViewController(animated: true)
+        } else {
+            performSegue(withIdentifier: "MyStuffSegue", sender: self)
+        }
     }
 }
 extension CategoriesViewController: CategoryTableViewCellDelegate {
@@ -188,6 +188,61 @@ extension CategoriesViewController: CategoryTableViewCellDelegate {
         cell.updateCell(category)
         
         CoreDataStack.save()
+    }
+}
+
+
+extension CategoriesViewController: UITextFieldDelegate {
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.textColor = .black
+        textField.text = ""
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        if textField == categoryTextField {
+            if textField.text == "" {
+                setupView()
+            }
+        }
+        textField.resignFirstResponder()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if let categoryName = categoryTextField.text, categoryName.count > 0{
+            
+            CategoryController.shared.create(categoryName: categoryName)
+            
+            tableView.reloadData()
+            
+            categoryTextField.text = ""
+        }
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
+// MARK: - Create and Present AlertController
+extension CategoriesViewController {
+    func presentDeleteAlertController(indexPathRow: Int) {
+        let alertController = UIAlertController(title: "Are you sure you want to delete this category?", message: "", preferredStyle: .alert)
+        // - Add Actions
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (_) in
+            // AKA What happens when we press the button
+            
+            let categoryToDelete = CategoryController.shared.categories[indexPathRow]
+            CategoryController.shared.delete(category: categoryToDelete)
+            self.tableView.reloadData()
+            
+        }
+        let cancelAction  = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        // - Add actions to alert controller
+        alertController.addAction(deleteAction)
+        alertController.addAction(cancelAction)
+        // - Present Alert Controller
+        present(alertController, animated: true)
     }
 }
 
@@ -227,64 +282,3 @@ extension CategoriesViewController: CategoryTableViewCellDelegate {
 //            return
 //        }
 //    }}
-
-
-
-
-
-
-
-extension CategoriesViewController: UITextFieldDelegate {
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.textColor = .black
-        textField.text = ""
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        
-        if textField == categoryTextField {
-            if textField.text == "" {
-                setupView()
-            }
-        }
-        textField.resignFirstResponder()
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        if let categoryName = categoryTextField.text, categoryName.count > 0{
-            
-            CategoryController.shared.create(categoryName: categoryName)
-            
-            tableView.reloadData()
-            
-            categoryTextField.text = ""
-        }
-        textField.resignFirstResponder()
-        return true
-    }
-}
-
-// MARK: - Create and Present AlertController
-//extension CategoriesViewController {
-//    func presentDeleteAlertController(indexPathRow: Int) {
-//        let alertController = UIAlertController(title: "Are you sure you want to delete this category?", message: "", preferredStyle: .alert)
-//        // - Add Actions
-//        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (_) in
-//            // AKA What happens when we press the button
-//            
-//            let categoryToDelete = CategoryController.shared.categories[indexPathRow]
-//            CoreDataController.shared.deleteCategory(with: categoryToDelete)
-//            CoreDataController.shared.allCategories.remove(at: indexPathRow)
-//            self.tableView.reloadData()
-//            
-//        }
-//        let cancelAction  = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-//        // - Add actions to alert controller
-//        alertController.addAction(deleteAction)
-//        alertController.addAction(cancelAction)
-//        // - Present Alert Controller
-//        present(alertController, animated: true)
-//    }
-//}

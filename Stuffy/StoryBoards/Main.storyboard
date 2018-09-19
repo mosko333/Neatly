@@ -119,7 +119,6 @@
                                             <outlet property="categoryCountLabel" destination="Glt-WG-bEq" id="8XO-y8-3Jz"/>
                                             <outlet property="categoryNameLabel" destination="F2o-rl-1tE" id="BV9-fr-yfS"/>
                                             <outlet property="isFavoritedButton" destination="dyg-h0-lt0" id="q0z-fq-Yiw"/>
-                                            <segue destination="cEi-rM-xlk" kind="show" identifier="MyStuffSegue" id="EbE-z5-Ho5"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -198,11 +197,12 @@
                         <outlet property="categoryTextField" destination="Z3S-hW-tgy" id="TuG-WD-IK9"/>
                         <outlet property="emptyCategoryView" destination="7GG-fd-zW9" id="Nld-aV-mIs"/>
                         <outlet property="tableView" destination="JQr-AC-IVe" id="FsS-Zj-8JS"/>
+                        <segue destination="cEi-rM-xlk" kind="show" identifier="MyStuffSegue" id="Eq9-lm-2sj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Db-tw-KUy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4151" y="1762"/>
+            <point key="canvasLocation" x="-4151" y="1611"/>
         </scene>
         <!--Custom Tab Bar View Controller-->
         <scene sceneID="iix-aE-WR0">
@@ -593,7 +593,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VDl-GR-CWn"/>
                     </view>
-                    <navigationItem key="navigationItem" id="RhW-Ff-Aji"/>
+                    <navigationItem key="navigationItem" id="RhW-Ff-Aji">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="xcaBackArrow" id="yCY-VO-W6c"/>
+                        <barButtonItem key="rightBarButtonItem" image="xcaEllipsis" largeContentSizeImage="Edit" id="ZhP-A2-Alm"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="emptyItemView" destination="qlB-bW-Yxq" id="bw9-EP-dyg"/>
                         <outlet property="tableView" destination="gFg-8I-UR8" id="8es-b8-AmE"/>
@@ -601,7 +604,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2uS-KZ-x6T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4151" y="2661"/>
+            <point key="canvasLocation" x="-4151" y="2607"/>
         </scene>
         <!--Item Detail View Controller-->
         <scene sceneID="yl6-dz-iZZ">
@@ -985,7 +988,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ikb-Vu-Fxy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1465" y="3602"/>
+            <point key="canvasLocation" x="-1436" y="4037"/>
         </scene>
         <!--Add Item Table View Controller-->
         <scene sceneID="6GQ-1d-8vu">
@@ -1428,7 +1431,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yM9-UG-fxM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5690" y="3428"/>
+            <point key="canvasLocation" x="-5750" y="3345"/>
         </scene>
         <!--Add Item Table View Controller-->
         <scene sceneID="naH-Zp-3SU">
@@ -2406,7 +2409,7 @@
                     </connections>
                 </datePicker>
             </objects>
-            <point key="canvasLocation" x="-1465.217391304348" y="1292.5271739130435"/>
+            <point key="canvasLocation" x="-1467" y="2019"/>
         </scene>
         <!--Scan -->
         <scene sceneID="aOf-v7-Kry">
@@ -2504,7 +2507,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-710" y="2584"/>
+            <point key="canvasLocation" x="-540" y="2607"/>
         </scene>
         <!--Photo Preview View Controller-->
         <scene sceneID="SXe-OL-rNi">
@@ -2540,7 +2543,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="787-RR-jBj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-710" y="3602"/>
+            <point key="canvasLocation" x="-540" y="3601"/>
         </scene>
         <!--Full Screen Image View Controller-->
         <scene sceneID="6Gs-qJ-lft">
@@ -2624,7 +2627,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p4v-jL-U2t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2257" y="2584"/>
+            <point key="canvasLocation" x="-2399" y="2606"/>
         </scene>
         <!--Categories-->
         <scene sceneID="cxq-GL-MKe">
@@ -3934,7 +3937,6 @@
         <!--Start Check Screen View Controller-->
         <scene sceneID="UVY-xQ-tVe">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="auE-aY-8pu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="cRU-5p-2h3" customClass="StartCheckScreenViewController" customModule="Stuffy" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VKg-kh-6x5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
@@ -3955,6 +3957,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="jnF-6N-qE7"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="auE-aY-8pu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1463" y="-1030"/>
         </scene>
@@ -4257,10 +4260,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n5D-E7-J8j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-539" y="752"/>
+            <point key="canvasLocation" x="-1466" y="752"/>
         </scene>
     </scenes>
     <resources>
+        <image name="Edit" width="16" height="16"/>
         <image name="button:dyg-h0-lt0:image" width="17" height="15">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGVVZYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QEgcI
@@ -21238,6 +21242,7 @@ vgAPYMEAD2DGAA9gzgAPYNEAD2DjAA9g5gAPYOsAAAAAAAAEAQAAAAAAAABZAAAAAAAAAAAAAAAAAA9g
         <image name="xcaCurrency" width="23" height="23"/>
         <image name="xcaDigitEmpty" width="16" height="16"/>
         <image name="xcaDownChevron" width="14" height="8"/>
+        <image name="xcaEllipsis" width="23" height="5"/>
         <image name="xcaFavBarLight" width="30" height="30"/>
         <image name="xcaFocusIndicator" width="75" height="75"/>
         <image name="xcaForwardArrow" width="8" height="14"/>
