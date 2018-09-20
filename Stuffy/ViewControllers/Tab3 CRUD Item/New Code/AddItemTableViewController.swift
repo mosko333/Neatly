@@ -82,7 +82,7 @@ class AddItemTableViewController: UITableViewController {
         itemNameTextField.text = tempItem.name
         currencyTextField.text = UserDefaults.standard.object(forKey: CurrencyViewController.Constants.currencyKey) as? String ?? "$"
         priceTextField.text = "\(tempItem.price ?? 0)"
-        quantityTextField.text = "\(tempItem.quantity ?? 1)"
+        quantityTextField.text = "\(Int(tempItem.quantity ?? 1))"
         if let purchaseDate = tempItem.purchaseDate {
             dateFormater.dateStyle = .long
             purchaseDateTextField.text = dateFormater.string(from: purchaseDate)
@@ -182,18 +182,19 @@ class AddItemTableViewController: UITableViewController {
     }
     
     func updateItemFromTempCard() {
+        saveToTempItem()
         if let item = item {
             ItemController.updateFromTempItem(category: category, item: item, tempItem: tempItem)
         }
     }
     
     fileprivate func saveTempCardToCoreData() {
-        if let _ = tempItem.category,
-            let name = tempItem.name,
+        saveToTempItem()
+        if let name = tempItem.name,
             !name.components(separatedBy: .whitespaces).isEmpty,
             let quantaty = quantityTextField.text,
             let quantatyNum = Int(quantaty),
-            quantatyNum > 1 {
+            quantatyNum > 0 {
             ItemController.createItemFrom(category: category, tempItem: tempItem)
             dismiss(animated: true)
         }
@@ -290,6 +291,7 @@ class AddItemTableViewController: UITableViewController {
             }
         } else {
             saveTempCardToCoreData()
+            dismiss(animated: true)
         }
     }
     // Select input media
@@ -301,7 +303,7 @@ class AddItemTableViewController: UITableViewController {
             pickImageWithCamera()
         case 2:
             // Scan
-            navigationController?.performSegue(withIdentifier: "toNavControllerAutoCrop", sender: self)
+            performSegue(withIdentifier: "toNavControllerAutoCrop", sender: self)
         default:
             return
         }
@@ -361,7 +363,7 @@ class AddItemTableViewController: UITableViewController {
         }
         dismiss(animated: true)
     }
-    
+    @IBAction func unwindToAddItemTVC(_ sender: UIStoryboardSegue) { }
     
     
     // MARK: - Navigation

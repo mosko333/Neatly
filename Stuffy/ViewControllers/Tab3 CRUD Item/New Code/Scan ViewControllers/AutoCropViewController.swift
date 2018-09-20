@@ -100,7 +100,7 @@ class AutoCropViewController: UIViewController {
                 // TODO: Replace With Model
                 //////////////////////
                 destinationVC.photo = photo
-                destinationVC.categoryPicked = categoryPicked
+                //destinationVC.categoryPicked = categoryPicked
             }
         }
     }

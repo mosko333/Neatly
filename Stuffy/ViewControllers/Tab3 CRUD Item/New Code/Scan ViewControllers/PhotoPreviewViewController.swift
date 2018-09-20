@@ -13,7 +13,7 @@ class PhotoPreviewViewController: UIViewController {
     // TODO: Replace With Model
     //////////////////////
     var photo: UIImage?
-    var categoryPicked: Category?
+//    var categoryPicked: Category?
     
     @IBOutlet weak var photoImageView: UIImageView!
     
@@ -23,11 +23,11 @@ class PhotoPreviewViewController: UIViewController {
         updateView()
     }
     @IBAction func saveBtnTapped(_ sender: UIBarButtonItem) {
-       performSegue(withIdentifier: "toNewAddItemVC", sender: self)
-        guard let photo = photo else {return}
-        print("recepit save button pressed")
-        CoreDataController.shared.photos.append(photo)
-        
+        //performSegue(withIdentifier: "UnwindToAddItem", sender: self)
+//       performSegue(withIdentifier: "toNewAddItemVC", sender: self)
+//        guard let photo = photo else {return}
+//        print("recepit save button pressed")
+//        CoreDataController.shared.photos.append(photo)
     }
     
     func updateView() {
@@ -40,12 +40,14 @@ class PhotoPreviewViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toNewAddItemVC"{
-          let destinationVC = segue.destination as! UINavigationController
-            let topVC = destinationVC.topViewController as! AddItemTableViewController
-            topVC.tempItem.images.append(photo)
-//            topVC.categoryPicked = categoryPicked
-        }
+        let destVC = segue.destination as! AddItemTableViewController
+        destVC.tempItem.images.append(photo)
+//        if segue.identifier == "toNewAddItemVC"{
+//          let destinationVC = segue.destination as! UINavigationController
+//            let topVC = destinationVC.topViewController as! AddItemTableViewController
+//            topVC.tempItem.images.append(photo)
+////            topVC.categoryPicked = categoryPicked
+//        }
     }
     
 }

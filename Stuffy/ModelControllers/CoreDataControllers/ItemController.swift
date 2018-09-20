@@ -19,7 +19,7 @@ class ItemController {
     }
     static func createItemFrom(category: Category, tempItem: TempItem) {
         let item = Item(category: category, tempItem: tempItem)
-        if tempItem.images.count > 1 {
+        if tempItem.images.count > 0 {
             tempItem.images.forEach {
                 if let image = $0 {
                     ImageController.createImageWith(image: image, to: item)
