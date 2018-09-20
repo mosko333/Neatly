@@ -13,30 +13,41 @@ protocol  CategoryTableViewCellDelegate: class {
 }
 
 class CategoryTableViewCell: UITableViewCell {
-    
+    //
+    // MARK: - Outlets
+    //
+    weak var delegate: CategoryTableViewCellDelegate?
+    var isFavorite: Bool = false
+    //
+    // MARK: - Outlets
+    //
     @IBOutlet weak var categoryNameLabel: UILabel!
     @IBOutlet weak var categoryCountLabel: UILabel!
     @IBOutlet weak var isFavoritedButton: UIButton!
-    
-    weak var delegate: CategoryTableViewCellDelegate?
-    
-    var category: Category?
-    
+    //
+    // MARK: - Methods
+    //
     
     func updateCell(_ category: Category) {
         categoryNameLabel.text = category.name
         let itemCount = category.items?.count ?? 0
         categoryCountLabel.text = "(\(itemCount))"
-        
-        if category.isFavorite == true {
+        isFavorite = category.isFavorite
+        updateFavoriteStar()
+    }
+    fileprivate func updateFavoriteStar() {
+        if isFavorite {
             isFavoritedButton.setBackgroundImage(#imageLiteral(resourceName: "xcaCatFavStarFull"), for: .normal)
-        }
-        if category.isFavorite == false {
+        } else {
             isFavoritedButton.setBackgroundImage(#imageLiteral(resourceName: "xcaCatFavStarEmpty"), for: .normal)
         }
     }
-    
+    //
+    // MARK: - Actions
+    //
     @IBAction func isFavoritedButtonTapped(_ sender: UIButton) {
+        isFavorite = !isFavorite
+        updateFavoriteStar()
         delegate?.categoryFavorited(self)
     }
 }

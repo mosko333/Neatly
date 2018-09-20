@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 
 protocol CatergorieSelectedDelegate: class {
-    func selected(catergory: Category)
+    func selected(category: Category)
 }
 
 class CategoriesViewController: UIViewController {
@@ -80,7 +80,7 @@ class CategoriesViewController: UIViewController {
             addCatBtn.isHidden = false
         }
         
-        // Changing text color of catergory lable text so the "+" is blue and the "Add a Category" is gray
+        // Changing text color of category lable text so the "+" is blue and the "Add a Category" is gray
         let placeHolderText = "+  Add a Category"
         let attributedText = NSMutableAttributedString(string: placeHolderText)
         
@@ -102,20 +102,15 @@ class CategoriesViewController: UIViewController {
     //
     // MARK: - Navigation
     //
-    
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //        if segue.identifier == "MyStuffSegue" {
-    //
-    //            guard let indexPath = tableView.indexPathForSelectedRow else { return }
-    //
-    //            let categorypicked =  CategoryController.shared.categories[indexPath.row]
-    //            if let destinationVC = segue.destination as? MyStuffViewController {
-    //                destinationVC.categoryPicked = categorypicked
-    //            }
-    //        }
-    //    }
-    
-    
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if segue.identifier == "MyStuffSegue" {
+                guard let indexPath = tableView.indexPathForSelectedRow else { return }
+                let category =  CategoryController.shared.categories[indexPath.row]
+                if let destinationVC = segue.destination as? MyStuffViewController {
+                    destinationVC.category = category
+                }
+            }
+        }    
     //
     // MARK: - Actions
     //
@@ -167,7 +162,7 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let category = CategoryController.shared.categories[indexPath.row]
-        delegate?.selected(catergory: category)
+        delegate?.selected(category: category)
         if !isHomeVC {
             navigationController?.popViewController(animated: true)
         } else {
@@ -177,16 +172,9 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
 }
 extension CategoriesViewController: CategoryTableViewCellDelegate {
     func categoryFavorited(_ cell: CategoryTableViewCell) {
-        
-        let indexPath = tableView.indexPath(for: cell)
-        
-        let category =  CategoryController.shared.categories[(indexPath?.row)!]
-        
+        guard let indexPath = tableView.indexPath(for: cell) else { return }
+        let category =  CategoryController.shared.categories[indexPath.row]
         category.isFavorite = !category.isFavorite
-        
-        print(category.isFavorite)
-        cell.updateCell(category)
-        
         CoreDataStack.save()
     }
 }

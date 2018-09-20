@@ -27,10 +27,10 @@ extension Item {
         self.returnDate = returnDate
     }
     
-    convenience init(tempItem: TempItem, context: NSManagedObjectContext = CoreDataStack.context) {
+    convenience init(category: Category, tempItem: TempItem, context: NSManagedObjectContext = CoreDataStack.context) {
         // initalizing the context for us to place our data into
         self.init(context: context)
-        self.category = tempItem.category
+        self.category = category
         self.name = tempItem.name
         self.isFavorite = tempItem.isFavorite ?? false
         self.modelNumber = tempItem.modelNumber

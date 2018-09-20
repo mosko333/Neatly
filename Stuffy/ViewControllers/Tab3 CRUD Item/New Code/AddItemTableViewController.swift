@@ -15,15 +15,20 @@ class AddItemTableViewController: UITableViewController {
     //
     // MARK: - Properties
     //
-    var isItemSummery = true
+    var isItemSummery = false
+    var showCameraCell = true
     var tempItem = TempItem()
     var item: Item?
     let imagePickerController = UIImagePickerController()
+    var category: Category {
+        return tempItem.category ?? CategoryController.shared.categories[0]
+    }
     //
     // MARK: - Outlets
     //
     @IBOutlet var datePicker: UIDatePicker!
     @IBOutlet weak var rightBarBtnItem: UIBarButtonItem!
+    @IBOutlet weak var leftBarBtnItem: UIBarButtonItem!
     @IBOutlet weak var cameraBigBackgroundImageView: UIImageView!
     @IBOutlet weak var cameraSummeryBtn: UIButton!
     @IBOutlet weak var summeryCollectionView: UICollectionView!
@@ -51,11 +56,11 @@ class AddItemTableViewController: UITableViewController {
         clearTextView()
         setupDelegates()
         setupNavBar()
-        tempItem.images.append(#imageLiteral(resourceName: "xcaCameraCellDefaultImage"))
-        tempItem.images.append(#imageLiteral(resourceName: "xcaOnboardLamp"))
-        tempItem.images.append(#imageLiteral(resourceName: "xcaSampleImage"))
-        tempItem.images.append(#imageLiteral(resourceName: "xcaSplashScreen"))
-        tempItem.images.append(#imageLiteral(resourceName: "xcaAddItemBarBtn"))
+        //        tempItem.images.append(#imageLiteral(resourceName: "xcaCameraCellDefaultImage"))
+        //        tempItem.images.append(#imageLiteral(resourceName: "xcaOnboardLamp"))
+        //        tempItem.images.append(#imageLiteral(resourceName: "xcaSampleImage"))
+        //        tempItem.images.append(#imageLiteral(resourceName: "xcaSplashScreen"))
+        //        tempItem.images.append(#imageLiteral(resourceName: "xcaAddItemBarBtn"))
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
@@ -79,8 +84,8 @@ class AddItemTableViewController: UITableViewController {
         priceTextField.text = "\(tempItem.price ?? 0)"
         quantityTextField.text = "\(tempItem.quantity ?? 1)"
         if let purchaseDate = tempItem.purchaseDate {
-        dateFormater.dateStyle = .long
-        purchaseDateTextField.text = dateFormater.string(from: purchaseDate)
+            dateFormater.dateStyle = .long
+            purchaseDateTextField.text = dateFormater.string(from: purchaseDate)
         }
         if let returnDate = tempItem.returnDate {
             dateFormater.dateStyle = .short
@@ -143,6 +148,8 @@ class AddItemTableViewController: UITableViewController {
     func setupNavBar() {
         rightBarBtnItem.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         if isItemSummery {
+            navigationController?.title = "Item Summary"
+            leftBarBtnItem.title = "Done"
             rightBarBtnItem.title = ""
             if let isFavorive = tempItem.isFavorite,
                 isFavorive == true {
@@ -152,6 +159,8 @@ class AddItemTableViewController: UITableViewController {
                 rightBarBtnItem.image = #imageLiteral(resourceName: "xcaItemSummaryFavStarEmpty")
             }
         } else {
+            navigationController?.title = ""
+            leftBarBtnItem.title = "Cancel"
             rightBarBtnItem.image = nil
             rightBarBtnItem.title = "Save"
         }
@@ -172,6 +181,23 @@ class AddItemTableViewController: UITableViewController {
         print(tempItem)
     }
     
+    func updateItemFromTempCard() {
+        if let item = item {
+            ItemController.updateFromTempItem(category: category, item: item, tempItem: tempItem)
+        }
+    }
+    
+    fileprivate func saveTempCardToCoreData() {
+        if let _ = tempItem.category,
+            let name = tempItem.name,
+            !name.components(separatedBy: .whitespaces).isEmpty,
+            let quantaty = quantityTextField.text,
+            let quantatyNum = Int(quantaty),
+            quantatyNum > 1 {
+            ItemController.createItemFrom(category: category, tempItem: tempItem)
+            dismiss(animated: true)
+        }
+    }
     // MARK: - Table view data source
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -191,28 +217,28 @@ class AddItemTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            if isItemSummery {
-                return 0
+            if showCameraCell {
+                return 373
             }
-            return 373
+            return 0
         }
         if indexPath.row == 1 {
-            if isItemSummery {
-                return 352
-            }
-            return 0
-        }
-        if indexPath.row == 2 {
-            if isItemSummery {
-                return 28
-            }
-            return 0
-        }
-        if indexPath.row == 3 {
-            if isItemSummery {
+            if showCameraCell {
                 return 0
             }
-            return 63
+            return 352
+        }
+        if indexPath.row == 2 {
+            if showCameraCell {
+                return 0
+            }
+            return 28
+        }
+        if indexPath.row == 3 {
+            if showCameraCell {
+                return 63
+            }
+            return 0
         }
         if indexPath.row == 4 {
             return 48
@@ -239,7 +265,10 @@ class AddItemTableViewController: UITableViewController {
     // MARK: - Actions
     //
     // Bar Button Items
-    @IBAction func cancelBtnTapped(_ sender: UIBarButtonItem) {
+    @IBAction func leftBarBtnTapped(_ sender: UIBarButtonItem) {
+        if isItemSummery {
+            updateItemFromTempCard()
+        }
         dismiss(animated: true)
     }
     // btn for 'Save' if addItemVC or 'isFavorite' if itemSummeryVC
@@ -256,18 +285,11 @@ class AddItemTableViewController: UITableViewController {
                     rightBarBtnItem.tintColor = #colorLiteral(red: 0.4784313725, green: 0.7058823529, blue: 0.9921568627, alpha: 1)
                 }
                 if let item = item {
-                    ItemController.update(item: item, isFavorite: tempItem.isFavorite)
+                    ItemController.update(category: category, item: item, isFavorite: tempItem.isFavorite)
                 }
             }
         } else {
-        if let _ = tempItem.category,
-            let name = tempItem.name,
-            !name.components(separatedBy: .whitespaces).isEmpty,
-            let quantaty = quantityTextField.text,
-            let quantatyNum = Int(quantaty),
-            quantatyNum > 1 {
-            ItemController.createItemFrom(tempItem: tempItem)
-        }
+            saveTempCardToCoreData()
         }
     }
     // Select input media
@@ -404,9 +426,9 @@ extension AddItemTableViewController: UINavigationControllerDelegate, UIImagePic
         }
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-// Local variable inserted by Swift 4.2 migrator.
-let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
-
+        // Local variable inserted by Swift 4.2 migrator.
+        let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+        
         let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as! UIImage
         tempItem.images.append(image)
         picker.dismiss(animated: true, completion: nil)
@@ -431,7 +453,7 @@ extension AddItemTableViewController: UICollectionViewDelegate, UICollectionView
         summeryPageController.numberOfPages = tempItem.images.count
         return tempItem.images.count
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "summeryCell", for: indexPath) as! SummeryItemImageCollectionViewCell
         cell.itemImage.image = tempItem.images[indexPath.row]
@@ -442,25 +464,28 @@ extension AddItemTableViewController: UICollectionViewDelegate, UICollectionView
         let offSet = scrollView.contentOffset.x
         let width = scrollView.frame.width
         let horizontalCenter = width / 2
-
+        
         summeryPageController.currentPage = Int(offSet + horizontalCenter) / Int(width)
     }
 }
 
 extension AddItemTableViewController: SummeryItemImageDelegate {
     func deleteImage(cell: SummeryItemImageCollectionViewCell) {
-        if let indexPath = summeryCollectionView.indexPath(for: cell) {
+        if let indexPath = summeryCollectionView.indexPath(for: cell),
+            let item = item,
+            let image = item.images?[indexPath.row] as? Image {
+            ImageController.delete(image: image, fromA: item)
             tempItem.images.remove(at: indexPath.row)
             summeryCollectionView.deleteItems(at: [indexPath])
         }
     }
-
+    
     func addPhoto() {
-        isItemSummery = false
+        showCameraCell = true
         setupNavBar()
         tableView.reloadData()
     }
-
+    
     func updateCover(cell: SummeryItemImageCollectionViewCell) {
         if let indexPath = summeryCollectionView.indexPath(for: cell) {
             let image = cell.itemImage.image
@@ -477,9 +502,9 @@ extension AddItemTableViewController: SummeryItemImageDelegate {
 }
 
 extension AddItemTableViewController: CatergorieSelectedDelegate {
-    func selected(catergory: Category) {
-        tempItem.category = catergory
-        catNameLabel.text = catergory.name
+    func selected(category: Category) {
+        tempItem.category = category
+        catNameLabel.text = category.name
     }
 }
 
