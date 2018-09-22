@@ -107,19 +107,18 @@ extension MyStuffViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 95
     }
+    
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        
         let deleteAction = UITableViewRowAction(style: .normal, title: "Delete") { (rowAction, indexPath) in
             //TODO: Delete the row at indexPath here
-            
             self.presentDeleteAlertController(indexPathRow: indexPath.row)
         }
         deleteAction.backgroundColor = Colors.stuffyRed
-        
         //return [editAction,deleteAction]
         return [deleteAction]
     }
 }
+
 // Alert Controller
 extension MyStuffViewController {
     func presentDeleteAlertController(indexPathRow: Int) {
@@ -129,10 +128,7 @@ extension MyStuffViewController {
             // AKA What happens when we press the button
             let item = self.items[indexPathRow]
             
-            
             CoreDataController.shared.deleteItem(with: item)
-            
-            
             
             self.items.remove(at: indexPathRow)
             

@@ -341,18 +341,11 @@
 			path = StoryBoards;
 			sourceTree = "<group>";
 		};
-		7EAAB7782152C9CD003AD419 /* Tab1 */ = {
-			isa = PBXGroup;
-			children = (
-				F78F675820FE6997001320D1 /* CategoryTableViewCell.swift */,
-			);
-			path = Tab1;
-			sourceTree = "<group>";
-		};
 		7EAAB7792152E86D003AD419 /* GenericView */ = {
 			isa = PBXGroup;
 			children = (
 				7EAAB77A2152E966003AD419 /* SummaryWithImageTableViewCellDelegate.swift */,
+				F78F675820FE6997001320D1 /* CategoryTableViewCell.swift */,
 			);
 			path = GenericView;
 			sourceTree = "<group>";
@@ -388,7 +381,6 @@
 			children = (
 				7EB65F8C214B1110004F031F /* NewViews */,
 				7EAAB7792152E86D003AD419 /* GenericView */,
-				7EAAB7782152C9CD003AD419 /* Tab1 */,
 				7E482DC821516C94004188E4 /* InitialLaunch */,
 				7EEDB7D2214F336E00AD3AF4 /* Tab3 */,
 			);

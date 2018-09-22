@@ -24,7 +24,6 @@ class CustomTabBarViewController: UITabBarController, CustomTabBarViewMainDelega
     // MARK: - Methods
     //
     func setupTabBar() {
-        
         tabView.delegate = self
         selectedIndex = 0
         tabView.translatesAutoresizingMaskIntoConstraints = false
