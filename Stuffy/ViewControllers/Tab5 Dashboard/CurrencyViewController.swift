@@ -37,6 +37,13 @@ class CurrencyViewController: UIViewController {
         let insets = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
         self.tableView.contentInset = insets
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        // When moving tabs, this will bring you back to the top screen.
+        navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func backBarButton(_ sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
     }

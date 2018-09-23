@@ -10,9 +10,32 @@ import UIKit
 import CoreData
 
 class ItemController {
+    //
+    // MARK: - Properties
+    //
+    static var sortedItemFavorites: [Item] {
+        let request: NSFetchRequest<Item> = Item.fetchRequest()
+        //let favoriteSort = NSSortDescriptor(key: "isFavorite", ascending: true)
+        //request.sortDescriptors = [favoriteSort]
+        let isFavoritePredicate = NSPredicate(format: "isFavorite == %@", NSNumber(value: true))
+        request.predicate = isFavoritePredicate
+        guard let itemArray = try? CoreDataStack.context.fetch(request) else {
+            print("❌ Error fetching categories from core data"); return [] }
+        return itemArray
+    }
     
-    // This is a static method that belongs to the class so we do not need an instance
-    
+    static var sortedItemsByPurchaseDate: [Item] {
+        let request: NSFetchRequest<Item> = Item.fetchRequest()
+        let purchaseDateSort = NSSortDescriptor(key: "purchaseDate", ascending: true)
+        
+        request.sortDescriptors = [purchaseDateSort]
+        guard let sortedItemArray = try? CoreDataStack.context.fetch(request) else {
+            print("❌ Error fetching sortedItemsByPurchaseDate from core data"); return [] }
+        return sortedItemArray
+    }
+    //
+    // MARK: - Methods
+    //
     static func createItemWith(category: Category, name: String, isFavorite: Bool, modelNumber: String, storePurchasedFrom: String, note: String, price: Double, quantity: Double, serialNumber: String, purchaseDate: Date, warrantyDate: Date, returnDate: Date) {
         let _ = Item(category: category, name: name, isFavorite: isFavorite, modelNumber: modelNumber, storePurchasedFrom: storePurchasedFrom, note: note, price: price, quantity: quantity, serialNumber: serialNumber, purchaseDate: purchaseDate, warrantyDate: warrantyDate, returnDate: returnDate)
         CoreDataStack.save()

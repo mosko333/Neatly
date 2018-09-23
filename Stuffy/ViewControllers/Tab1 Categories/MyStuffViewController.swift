@@ -29,31 +29,32 @@ class MyStuffViewController: UIViewController {
         tableView.dataSource = self
         navigationItem.title = category?.name
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        //        let insets = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
-        //        self.tableView.contentInset = insets
+        addTableViewBottomSpace()
         unpackItems()
         setupView()
         tableView.reloadData()
     }
     
-    //    override func viewDidDisappear(_ animated: Bool) {
-    //        super.viewDidDisappear(true)
-    //        navigationController?.popViewController(animated: true)
-    //    }
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        // When moving tabs, this will bring you back to the top screen.
+        navigationController?.popViewController(animated: true)
+    }
     
     //
     // MARK: - Methods
     //
-    func setupView() {
+    fileprivate func setupView() {
         if items.count == 0 {
             emptyItemView.isHidden = false
         } else {
             emptyItemView.isHidden = true
         }
     }
-    func unpackItems() {
+    fileprivate func unpackItems() {
         guard let elements = category?.items else { return }
         var unpackedItems: [Item] = []
         for element in elements {
@@ -64,6 +65,11 @@ class MyStuffViewController: UIViewController {
         self.items = unpackedItems
         print(items.count)
     }
+    // Allows you to scroll to the bottom of the TB without the bottom items being hidden by the tabbar
+    fileprivate func addTableViewBottomSpace() {
+        let insets = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
+        self.tableView.contentInset = insets
+    }
     //
     // MARK: - Actions
     //
@@ -71,7 +77,8 @@ class MyStuffViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     @IBAction func editBtnTapped(_ sender: UIBarButtonItem) {
-        print("add item button pressed")
+        let actionSheet = UIAlertController()
+        presentEditActionSheet(sender: sender, actionSheet: actionSheet)
     }
     //
     // MARK: - Navigation
@@ -111,7 +118,7 @@ extension MyStuffViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .normal, title: "Delete") { (rowAction, indexPath) in
             //TODO: Delete the row at indexPath here
-            self.presentDeleteAlertController(indexPathRow: indexPath.row)
+            self.presentDeleteItemAlertController(indexPathRow: indexPath.row)
         }
         deleteAction.backgroundColor = Colors.stuffyRed
         //return [editAction,deleteAction]
@@ -121,19 +128,51 @@ extension MyStuffViewController: UITableViewDataSource, UITableViewDelegate {
 
 // Alert Controller
 extension MyStuffViewController {
-    func presentDeleteAlertController(indexPathRow: Int) {
+    func presentEditActionSheet(sender: UIBarButtonItem, actionSheet: UIAlertController) {
+        //let actionSheet = UIAlertController(title: "Photo Source", message: "Choose a source", preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Add Category to Favorites", style: .default, handler: { (action:UIAlertAction) in
+            self.category?.isFavorite = true
+            CoreDataStack.save()
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Delete this Category", style: .destructive , handler: { (action:UIAlertAction) in
+            self.presentDeleteCategoryAlertController()
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        // If the device is an ipad, this statement adds the actionSheet from the button
+        if let popoverController = actionSheet.popoverPresentationController {
+            popoverController.barButtonItem = sender
+        }
+        self.present(actionSheet, animated: true)
+    }
+    
+    func presentDeleteItemAlertController(indexPathRow: Int) {
         let alertController = UIAlertController(title: "Are you sure you want to delete this Item?", message: "", preferredStyle: .alert)
         // - Add Actions
         let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (_) in
             // AKA What happens when we press the button
             let item = self.items[indexPathRow]
-            
             CoreDataController.shared.deleteItem(with: item)
-            
             self.items.remove(at: indexPathRow)
-            
             self.tableView.reloadData()
-            
+        }
+        let cancelAction  = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        // - Add actions to alert controller
+        alertController.addAction(deleteAction)
+        alertController.addAction(cancelAction)
+        // - Present Alert Controller
+        present(alertController, animated: true)
+    }
+    
+    func presentDeleteCategoryAlertController() {
+        let alertController = UIAlertController(title: "Are you sure you want to delete this category?", message: "", preferredStyle: .alert)
+        // - Add Actions
+        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (_) in
+            // AKA What happens when we press the button
+            if let category = self.category {
+                CoreDataController.shared.deleteCategory(with: category)
+                self.navigationController?.popViewController(animated: true)
+            }
         }
         let cancelAction  = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         // - Add actions to alert controller
@@ -143,6 +182,7 @@ extension MyStuffViewController {
         present(alertController, animated: true)
     }
 }
+
 extension MyStuffViewController: SummaryWithImageTableViewCellDelegate {
     func itemFavorited(_ cell: SummaryWithImageTableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }

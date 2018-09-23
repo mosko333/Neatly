@@ -28,6 +28,12 @@ class SettingsViewController: UIViewController {
         settingsTable.reloadData()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(true)
+        // When moving tabs, this will bring you back to the top screen.
+        navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func backBarButton(_ sender: UIBarButtonItem) {
         navigationController?.popViewController(animated: true)
     }
