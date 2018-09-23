@@ -83,7 +83,7 @@ class MyStuffViewController: UIViewController {
     //
     // MARK: - Navigation
     //
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {        
         if segue.identifier == "toItemSummery" {
             guard let destinationVC = segue.destination as? UINavigationController,
                 let indexPath = tableView.indexPathForSelectedRow,
@@ -188,7 +188,6 @@ extension MyStuffViewController: SummaryWithImageTableViewCellDelegate {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         let item = items[indexPath.row]
         item.isFavorite = !item.isFavorite
-        print(item.isFavorite)
         CoreDataStack.save()
     }
 }
