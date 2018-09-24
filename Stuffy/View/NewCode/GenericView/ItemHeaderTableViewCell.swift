@@ -9,7 +9,13 @@
 import UIKit
 
 class ItemHeaderTableViewCell: UITableViewCell {
-
+    //
+    // MARK: - Outlets
+    //
+    @IBOutlet weak var nameLabel: UILabel!
+    //
+    // MARK: - Lifecycle Functions
+    //
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

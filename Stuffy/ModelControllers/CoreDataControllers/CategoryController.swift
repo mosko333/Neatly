@@ -36,6 +36,7 @@ class CategoryController {
             print("❌ Error fetching categories from core data"); return [] }
         return categoryArray
     }
+    
     //
     // MARK: - Methods
     //
@@ -53,5 +54,14 @@ class CategoryController {
     func delete(category: Category) {
         CoreDataStack.context.delete(category)
         CoreDataStack.save()
+    }
+    
+    func searchCategoriesBy(searchTerm: String) -> [Category] {
+        let request: NSFetchRequest<Category> = Category.fetchRequest()
+        let searchPredicate = NSPredicate(format: "name contains[c] '\(searchTerm)'")
+        request.predicate = searchPredicate
+        guard let categoryArray = try? CoreDataStack.context.fetch(request) else {
+            print("❌ Error fetching categories from core data"); return [] }
+        return categoryArray
     }
 }

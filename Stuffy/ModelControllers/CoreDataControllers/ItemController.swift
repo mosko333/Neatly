@@ -20,7 +20,7 @@ class ItemController {
         let isFavoritePredicate = NSPredicate(format: "isFavorite == %@", NSNumber(value: true))
         request.predicate = isFavoritePredicate
         guard let itemArray = try? CoreDataStack.context.fetch(request) else {
-            print("❌ Error fetching categories from core data"); return [] }
+            print("❌ Error fetching items from core data"); return [] }
         return itemArray
     }
     
@@ -142,5 +142,14 @@ class ItemController {
             let itemToDelete = category.items?.object(at: index) as? Item else { return }
         CoreDataStack.context.delete(itemToDelete)
         CoreDataStack.save()
+    }
+    
+    static func searchItemsBy(searchTerm: String) -> [Item] {
+        let request: NSFetchRequest<Item> = Item.fetchRequest()
+        let searchPredicate = NSPredicate(format: "name contains[c] '\(searchTerm)'")
+        request.predicate = searchPredicate
+        guard let itemArray = try? CoreDataStack.context.fetch(request) else {
+            print("❌ Error fetching categories from core data"); return [] }
+        return itemArray
     }
 }

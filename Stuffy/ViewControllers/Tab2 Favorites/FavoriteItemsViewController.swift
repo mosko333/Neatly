@@ -71,20 +71,18 @@ class FavoriteItemsViewController: UIViewController {
         }
     }
 }
+
 extension FavoriteItemsViewController: UITableViewDataSource, UITableViewDelegate{
-    //
-    // MARK: - Delegate @ Data Source Methods
-    //
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
-            return (favoritedCategories.count)
+            return favoritedCategories.count
         }
         if section == 1 {
-            return (favoritedItems.count)
+            return favoritedItems.count
         }
         return 0
     }
@@ -115,9 +113,15 @@ extension FavoriteItemsViewController: UITableViewDataSource, UITableViewDelegat
             return 95
         }
     }
+    
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 63
+        if section == 0 {
+            return 63
+        } else {
+            return 77
+        }
     }
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CatHeader") as? CategoryHeaderTableViewCell else { return UITableViewCell() }

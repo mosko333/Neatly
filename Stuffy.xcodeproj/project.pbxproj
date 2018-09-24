@@ -80,7 +80,7 @@
 		F7A08C2220EEC97200E37754 /* CategoriesDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7A08C2120EEC97200E37754 /* CategoriesDetailViewController.swift */; };
 		F7A08C2620EFF7D600E37754 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E9EE90920E1811C00F1CD79 /* Assets.xcassets */; };
 		F7D9D97E20F2F75F00F429A1 /* FavoriteItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D9D97D20F2F75F00F429A1 /* FavoriteItemsViewController.swift */; };
-		F7D9D98020F2F7A600F429A1 /* SearchItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D9D97F20F2F7A600F429A1 /* SearchItemsViewController.swift */; };
+		F7D9D98020F2F7A600F429A1 /* OldSearchItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D9D97F20F2F7A600F429A1 /* OldSearchItemsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -159,7 +159,7 @@
 		F78F675920FE6998001320D1 /* CustomUINavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUINavigationBar.swift; sourceTree = "<group>"; };
 		F7A08C2120EEC97200E37754 /* CategoriesDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesDetailViewController.swift; sourceTree = "<group>"; };
 		F7D9D97D20F2F75F00F429A1 /* FavoriteItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteItemsViewController.swift; sourceTree = "<group>"; };
-		F7D9D97F20F2F7A600F429A1 /* SearchItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemsViewController.swift; sourceTree = "<group>"; };
+		F7D9D97F20F2F7A600F429A1 /* OldSearchItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OldSearchItemsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,6 +228,7 @@
 				7EF2BB5C215180AD00FDB8B0 /* FirstOnboardCollectionViewCell.swift */,
 				7EF2BB5E215180D300FDB8B0 /* SecondOnboardCollectionViewCell.swift */,
 				7EF2BB60215180E500FDB8B0 /* ThirdOnboardCollectionViewCell.swift */,
+				7E9EE96D20E317AD00F1CD79 /* CustomTabBarMainView.swift */,
 			);
 			path = InitialLaunch;
 			sourceTree = "<group>";
@@ -281,7 +282,7 @@
 		7E86805F213A07DC00A3B198 /* Tab4 Search */ = {
 			isa = PBXGroup;
 			children = (
-				F7D9D97F20F2F7A600F429A1 /* SearchItemsViewController.swift */,
+				F7D9D97F20F2F7A600F429A1 /* OldSearchItemsViewController.swift */,
 				7E0E8304215745C8000E7406 /* SearchViewController.swift */,
 			);
 			path = "Tab4 Search";
@@ -502,7 +503,6 @@
 			isa = PBXGroup;
 			children = (
 				7EEDB7D1214F336000AD3AF4 /* NewCode */,
-				7E9EE96D20E317AD00F1CD79 /* CustomTabBarMainView.swift */,
 				F7789D22210BCE9F00ED22FE /* ItemDetailCustomCells */,
 				7EBCE29721014B390031A9CC /* DashboardCells */,
 				F78F675920FE6998001320D1 /* CustomUINavigationBar.swift */,
@@ -652,7 +652,7 @@
 				F7789D28210BCF2000ED22FE /* ItemInfoCell.swift in Sources */,
 				1770ACE220E6CC25005DBDF5 /* OldItemController.swift in Sources */,
 				7EEDB7CE214C368900AD3AF4 /* TempItem.swift in Sources */,
-				F7D9D98020F2F7A600F429A1 /* SearchItemsViewController.swift in Sources */,
+				F7D9D98020F2F7A600F429A1 /* OldSearchItemsViewController.swift in Sources */,
 				7EFC782C20F577F50096238A /* ResetAndEraseTableViewCell.swift in Sources */,
 				7EFC782B20F577F50096238A /* CurrencyPickerTableViewCell.swift in Sources */,
 				7E19043B20EC7A8B004DBE2D /* AutoCropCameraScanner.swift in Sources */,
