@@ -21,6 +21,7 @@ class SearchViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var cancelBtnWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var emptyStateView: UIView!
     //
     // MARK: - Lifecycle Functions
     //
@@ -28,8 +29,12 @@ class SearchViewController: UIViewController {
         super.viewDidLoad()
         searchBar.delegate = self
         setupTableView()
-        hideKeyboard()
         cancelBtnWidthConstraint.constant = 0
+        fetchSearchResults()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     //
     // MARK: - Methods
@@ -42,32 +47,25 @@ class SearchViewController: UIViewController {
         self.tableView.contentInset = insets
     }
     
-    func hideKeyboard() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(
-            target: self,
-            action: #selector(self.dismissKeyboard))
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard() {
-        searchBar.endEditing(true)
-        if let text = searchBar.text,
-            text.isEmpty {
-            setCancelBtnWidth(isHidden: true)
-        }
-    }
-    
     func setCancelBtnWidth(isHidden: Bool) {
             cancelBtnWidthConstraint.constant = isHidden ? 0 : 93
     }
     
-//    fileprivate func fetchSearchResults() {
-//        guard let searchTerm = searchBar.text,
-//            !searchTerm.isEmpty else { return }
-//        categoryResults = CategoryController.shared.searchCategoriesBy(searchTerm: searchTerm)
-//        itemResults = ItemController.searchItemsBy(searchTerm: searchTerm)
-//        //emptyStateView.isHidden = categoryResults.count == 0 && itemResults.count == 0 ? false : true
-//    }
+    fileprivate func fetchSearchResults() {
+        if let searchTerm = searchBar.text,
+            !searchTerm.isEmpty {
+        categoryResults = CategoryController.shared.searchCategoriesBy(searchTerm: searchTerm)
+        itemResults = ItemController.searchItemsBy(searchTerm: searchTerm)
+        }
+        if categoryResults.count == 0,
+            itemResults.count == 0 {
+            emptyStateView.isHidden = false
+        } else {
+            emptyStateView.isHidden = true
+        }
+            
+        //emptyStateView.isHidden = categoryResults.count == 0 && itemResults.count == 0 ? false : true
+    }
     
     //
     // MARK: - Navigation
@@ -111,6 +109,7 @@ extension SearchViewController: UISearchBarDelegate, UISearchDisplayDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         categoryResults = CategoryController.shared.searchCategoriesBy(searchTerm: searchText)
         itemResults = ItemController.searchItemsBy(searchTerm: searchText)
+        fetchSearchResults()
         tableView.reloadData()
     }
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -123,6 +122,9 @@ extension SearchViewController: UISearchBarDelegate, UISearchDisplayDelegate {
 }
 
 extension SearchViewController: UITableViewDataSource, UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("pfewkgrv")
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2

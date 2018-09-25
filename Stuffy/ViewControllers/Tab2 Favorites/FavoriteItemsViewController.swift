@@ -73,6 +73,9 @@ class FavoriteItemsViewController: UIViewController {
 }
 
 extension FavoriteItemsViewController: UITableViewDataSource, UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("pfewkgrv")
+    }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }

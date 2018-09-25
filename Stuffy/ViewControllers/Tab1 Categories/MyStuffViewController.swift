@@ -35,6 +35,7 @@ class MyStuffViewController: UIViewController {
         addTableViewBottomSpace()
         unpackItems()
         setupView()
+        navigationController?.setNavigationBarHidden(false, animated: true)
         tableView.reloadData()
     }
     
