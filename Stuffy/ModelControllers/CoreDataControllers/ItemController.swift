@@ -13,7 +13,7 @@ class ItemController {
     //
     // MARK: - Properties
     //
-    static var sortedItemFavorites: [Item] {
+    static var getFavoriteItems: [Item] {
         let request: NSFetchRequest<Item> = Item.fetchRequest()
         //let favoriteSort = NSSortDescriptor(key: "isFavorite", ascending: true)
         //request.sortDescriptors = [favoriteSort]
@@ -24,13 +24,13 @@ class ItemController {
         return itemArray
     }
     
-    static var sortedItemsByPurchaseDate: [Item] {
+    static var getItemsByPurchaseDate: [Item] {
         let request: NSFetchRequest<Item> = Item.fetchRequest()
         let purchaseDateSort = NSSortDescriptor(key: "purchaseDate", ascending: true)
         
         request.sortDescriptors = [purchaseDateSort]
         guard let sortedItemArray = try? CoreDataStack.context.fetch(request) else {
-            print("❌ Error fetching sortedItemsByPurchaseDate from core data"); return [] }
+            print("❌ Error fetching getItemsByPurchaseDate from core data"); return [] }
         return sortedItemArray
     }
     //
@@ -144,10 +144,10 @@ class ItemController {
         CoreDataStack.save()
     }
     
-    static func searchItemsBy(searchTerm: String) -> [Item] {
+    static func getItemBySearchTerm(_ searchTerm: String) -> [Item] {
         let request: NSFetchRequest<Item> = Item.fetchRequest()
-        let searchPredicate = NSPredicate(format: "name contains[c] '\(searchTerm)'")
-        request.predicate = searchPredicate
+        let sortBySearchTerm = NSPredicate(format: "name contains[c] '\(searchTerm)'")
+        request.predicate = sortBySearchTerm
         guard let itemArray = try? CoreDataStack.context.fetch(request) else {
             print("❌ Error fetching categories from core data"); return [] }
         return itemArray

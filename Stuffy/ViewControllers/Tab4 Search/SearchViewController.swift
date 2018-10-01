@@ -54,8 +54,8 @@ class SearchViewController: UIViewController {
     fileprivate func fetchSearchResults() {
         if let searchTerm = searchBar.text,
             !searchTerm.isEmpty {
-        categoryResults = CategoryController.shared.searchCategoriesBy(searchTerm: searchTerm)
-        itemResults = ItemController.searchItemsBy(searchTerm: searchTerm)
+        categoryResults = CategoryController.shared.getCategoriesBySearchTerm(searchTerm)
+        itemResults = ItemController.getItemBySearchTerm(searchTerm)
         }
         if categoryResults.count == 0,
             itemResults.count == 0 {
@@ -107,8 +107,8 @@ extension SearchViewController: UISearchBarDelegate, UISearchDisplayDelegate {
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        categoryResults = CategoryController.shared.searchCategoriesBy(searchTerm: searchText)
-        itemResults = ItemController.searchItemsBy(searchTerm: searchText)
+        categoryResults = CategoryController.shared.getCategoriesBySearchTerm(searchText)
+        itemResults = ItemController.getItemBySearchTerm(searchText)
         fetchSearchResults()
         tableView.reloadData()
     }

@@ -22,43 +22,45 @@ class DashboardViewController: UIViewController, NSFetchedResultsControllerDeleg
 //
 //        return controller
 //    }()
-    
-    //////////////////////
-    // MARK: Properties
-    //////////////////////
-    
-    @IBOutlet weak var warrantyTable: UITableView!
-    
+    //
+    // MARK: - Properties
+    //
     var currency: String {
         return UserDefaults.standard.object(forKey: CurrencyViewController.Constants.currencyKey) as? String ?? "$" }
-     let items = CoreDataController.shared.items
-    
+    let items = CoreDataController.shared.items
+    //
+    // MARK: - Outlets
+    //
+    @IBOutlet weak var warrantyTable: UITableView!
+    //
+    // MARK: - Lifecycle Functions
+    //
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         warrantyTable.reloadData()
-        updateViews()
+        setupTableView()
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    //
+    // MARK: - Methods
+    //
+    fileprivate func setupTableView() {
         warrantyTable.delegate = self
         warrantyTable.dataSource = self
-        updateViews()
-
+        let insets = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
+        self.warrantyTable.contentInset = insets
     }
-    
-  
     
     func updateViews() {
         // Setup status bar to lightContent because it's changed to dark in the searchVC
         // We set the background colors alpha to 0 because otherwise it's translucent
-//        UIApplication.shared.statusBarView?.backgroundColor = UIColor(white: 0, alpha: 0)
-//        UIApplication.shared.statusBarStyle = .lightContent
+        //        UIApplication.shared.statusBarView?.backgroundColor = UIColor(white: 0, alpha: 0)
+        //        UIApplication.shared.statusBarStyle = .lightContent
         
         // Set insets to see the bottom cells of the table
-        let insets = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
-        self.warrantyTable.contentInset = insets
         
         // TODO - Populate Views using search data
         
@@ -66,10 +68,10 @@ class DashboardViewController: UIViewController, NSFetchedResultsControllerDeleg
 //        let pin = userFRC.fetchedObjects?.first
     }
 }
-
+//
+// MARK: - Extensions
+//
 extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
-    
-   
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -83,11 +85,8 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
         if indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "TotalCell") as? TotalValueTableViewCell else {return UITableViewCell()}
             let currencySymbol = currency.first ?? "$"
-            
             cell.currencyLabel.text = "\(currencySymbol)"
-            
             cell.updateCell()
-            
             return cell
         }
         if indexPath.row == 1 {
@@ -99,13 +98,11 @@ extension DashboardViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.isHidden = true
                 return cell
             } else {
-                
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ReturnCell") as! ReturnAndWarrantyTableViewCell
                 let upcommingDates = cell.getUpCommingReturnDates()
                 let upcommingItemNames = cell.getUpCommingReturnItemNames()
                 cell.dateLabel.text = upcommingDates.date1
                 cell.nameLabel.text = upcommingItemNames.item1Name
-                
                 return cell
             }
         }

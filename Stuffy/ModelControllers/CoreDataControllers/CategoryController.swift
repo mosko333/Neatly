@@ -26,7 +26,7 @@ class CategoryController {
         return categoryArray
     }
     
-    var sortedCategoriesFavorites: [Category] {
+    var getFavoriteCategory: [Category] {
         let request: NSFetchRequest<Category> = Category.fetchRequest()
         //let favoriteSort = NSSortDescriptor(key: "isFavorite", ascending: true)
         //request.sortDescriptors = [favoriteSort]
@@ -56,7 +56,7 @@ class CategoryController {
         CoreDataStack.save()
     }
     
-    func searchCategoriesBy(searchTerm: String) -> [Category] {
+    func getCategoriesBySearchTerm(_ searchTerm: String) -> [Category] {
         let request: NSFetchRequest<Category> = Category.fetchRequest()
         let searchPredicate = NSPredicate(format: "name contains[c] '\(searchTerm)'")
         request.predicate = searchPredicate

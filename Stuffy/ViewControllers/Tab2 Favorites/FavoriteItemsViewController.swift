@@ -44,8 +44,8 @@ class FavoriteItemsViewController: UIViewController {
         self.tableView.contentInset = insets
     }
     fileprivate func fetchFavorites() {
-        favoritedCategories = CategoryController.shared.sortedCategoriesFavorites
-        favoritedItems = ItemController.sortedItemFavorites
+        favoritedCategories = CategoryController.shared.getFavoriteCategory
+        favoritedItems = ItemController.getFavoriteItems
         emptyStateView.isHidden = favoritedCategories.count == 0 && favoritedItems.count == 0 ? false : true
     }
     //
