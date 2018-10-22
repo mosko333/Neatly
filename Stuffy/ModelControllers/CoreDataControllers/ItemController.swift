@@ -13,6 +13,13 @@ class ItemController {
     //
     // MARK: - Properties
     //
+    static var items: [Item] {
+        let request: NSFetchRequest<Item> = Item.fetchRequest()
+        guard let itemArray = try? CoreDataStack.context.fetch(request) else {
+            print("❌ Error fetching items from core data"); return [] }
+        return itemArray
+    }
+    
     static var getFavoriteItems: [Item] {
         let request: NSFetchRequest<Item> = Item.fetchRequest()
         //let favoriteSort = NSSortDescriptor(key: "isFavorite", ascending: true)
@@ -151,5 +158,44 @@ class ItemController {
         guard let itemArray = try? CoreDataStack.context.fetch(request) else {
             print("❌ Error fetching categories from core data"); return [] }
         return itemArray
+    }
+    
+    static func getUpcommingItemReturnDates() -> ([Item]){
+        if items.count > 0 {
+            let upcommingReturnDateItems = items.filter {
+                if let returnDate = $0.returnDate,
+                    returnDate >= Date() {
+                    return true
+                }
+                return false
+            }
+            let closestDateItemArray = upcommingReturnDateItems.sorted { $0.returnDate! < $1.returnDate! }
+            return closestDateItemArray
+        }
+        return []
+    }
+    
+    static func getUpcommingItemWarrantyDates() -> ([Item]){
+        if items.count > 0 {
+            let upcommingWarrantyDateItems = items.filter {
+                if let warrantyDate = $0.warrantyDate,
+                    warrantyDate >= Date() {
+                    return true
+                }
+                return false
+            }
+            let closestDateItemArray = upcommingWarrantyDateItems.sorted { $0.warrantyDate! < $1.warrantyDate! }
+            return closestDateItemArray
+        }
+        return []
+    }
+    
+    static func getTotalItemPrice() -> (Double) {
+        var totalItemPrice: Double = 0
+        for item in items {
+            totalItemPrice += item.price * item.quantity
+        }
+        let roundedPrice = Double(round(100*totalItemPrice)/100)
+        return roundedPrice
     }
 }

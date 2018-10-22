@@ -389,10 +389,12 @@
 		7EEDB7D1214F336000AD3AF4 /* NewCode */ = {
 			isa = PBXGroup;
 			children = (
+				7EBCE29721014B390031A9CC /* DashboardCells */,
 				7EB65F8C214B1110004F031F /* NewViews */,
 				7EAAB7792152E86D003AD419 /* GenericView */,
 				7E482DC821516C94004188E4 /* InitialLaunch */,
 				7EEDB7D2214F336E00AD3AF4 /* Tab3 */,
+				7EFC782620F577F40096238A /* SettingCells */,
 			);
 			path = NewCode;
 			sourceTree = "<group>";
@@ -504,12 +506,10 @@
 			children = (
 				7EEDB7D1214F336000AD3AF4 /* NewCode */,
 				F7789D22210BCE9F00ED22FE /* ItemDetailCustomCells */,
-				7EBCE29721014B390031A9CC /* DashboardCells */,
 				F78F675920FE6998001320D1 /* CustomUINavigationBar.swift */,
 				F731E97820F3174000ACE318 /* SearchScreenItemCell */,
 				F731E97520F2FEAA00ACE318 /* HomeScreenCategoryCell */,
 				F731E97020F2FAA300ACE318 /* FavoritedCustomCells */,
-				7EFC782620F577F40096238A /* SettingCells */,
 				7EFC782520F577F40096238A /* DashboardTableViewCell.swift */,
 				F78F675020F7CEC7001320D1 /* CameraPreviewCollectionViewCell.swift */,
 				F78F675220F7D50D001320D1 /* CameraPreviewTableViewCell.swift */,

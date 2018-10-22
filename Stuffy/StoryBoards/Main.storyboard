@@ -2496,6 +2496,7 @@
                                                     <rect key="frame" x="345" y="23" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="pinSwitchToggled:" destination="ZDf-8k-4xi" eventType="valueChanged" id="VON-X9-tPE"/>
+                                                        <segue destination="ynK-Zv-oy4" kind="presentation" identifier="TurnOnOffPinSegue" id="vf8-pc-8MK"/>
                                                     </connections>
                                                 </switch>
                                             </subviews>
@@ -2511,7 +2512,6 @@
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="pinSwitch" destination="j4e-8H-CnR" id="inp-2h-SjB"/>
-                                            <segue destination="ynK-Zv-oy4" kind="presentation" identifier="TurnOnOffPinSegue" id="DuF-2k-evB"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ResetCell" rowHeight="77" id="Aqu-ME-O2o" customClass="ResetAndEraseTableViewCell" customModule="Stuffy" customModuleProvider="target">
@@ -2553,7 +2553,7 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
-                                            <segue destination="ynK-Zv-oy4" kind="presentation" identifier="ResetPinSegue" trigger="accessoryAction" id="Azv-Sk-b6O"/>
+                                            <segue destination="ynK-Zv-oy4" kind="presentation" identifier="ResetPinSegue" id="tYK-G3-icc"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EraseCell" rowHeight="77" id="Ey5-bq-yLp" customClass="ResetAndEraseTableViewCell" customModule="Stuffy" customModuleProvider="target">
@@ -2940,7 +2940,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m8D-Mb-KFK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3260.8695652173915" y="751.63043478260875"/>
+            <point key="canvasLocation" x="3267" y="2608"/>
         </scene>
         <!--Currency View Controller-->
         <scene sceneID="Jlv-kp-gYR">
@@ -20954,7 +20954,7 @@ vgAPYMEAD2DGAA9gzgAPYNEAD2DjAA9g5gAPYOsAAAAAAAAEAQAAAAAAAABZAAAAAAAAAAAAAAAAAA9g
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="9Ct-KD-ID6"/>
-        <segue reference="DuF-2k-evB"/>
+        <segue reference="tYK-G3-icc"/>
         <segue reference="N3T-B8-qmE"/>
         <segue reference="EBr-HT-jfd"/>
     </inferredMetricsTieBreakers>
