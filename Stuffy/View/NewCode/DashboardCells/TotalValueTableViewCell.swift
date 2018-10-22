@@ -20,32 +20,10 @@ class TotalValueTableViewCell: UITableViewCell {
     }
     
     func updateCell (currencySymbol: Character, totalPrice: Double, totalCategories: Int, totalItems:Int) {
-//        let totalPrice = getTotalValue()
-//        let totalCategories = getTotalAmountofCategories()
-//        let totalItems = getTotalAmountofItems()
         currencyLabel.text = "\(currencySymbol)"
         totalValueLabel.text = "\(totalPrice)"
         numberOfCats.text = "\(totalCategories)"
         numberOfItems.text = "\(totalItems)"
         
     }
-    
-//    func getTotalValue() -> Double {
-//       let items = CoreDataController.shared.items
-//        var totalValue: Double = 0
-//        for item in items {
-//            var price = item.price
-//            if item.quantity >= 0 {
-//                price *= item.quantity
-//            }
-//            totalValue += (price)
-//        }
-//        return totalValue
-//    }
-//    func getTotalAmountofCategories() -> Int {
-//       return CategoryController.shared.categories.count
-//    }
-//    func getTotalAmountofItems() -> Int {
-//        return CoreDataController.shared.items.count
-//    }
 }
