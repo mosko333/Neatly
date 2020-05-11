@@ -114,7 +114,6 @@ class AutoCropCameraScanner:UIView, AVCaptureVideoDataOutputSampleBufferDelegate
         captureSession = session
         session.beginConfiguration()
         captureDevice = device
-        var error: Error? = nil
         let input = try? AVCaptureDeviceInput(device: device!)
         session.sessionPreset = AVCaptureSession.Preset.photo
         session.addInput(input!)
@@ -379,7 +378,8 @@ class AutoCropCameraScanner:UIView, AVCaptureVideoDataOutputSampleBufferDelegate
     func captureImage(withCompletionHander completionHandler: @escaping (_ imageFilePath: String) -> Void) {
         captureQueue.suspend()
         var videoConnection: AVCaptureConnection? = nil
-        for connection: AVCaptureConnection in stillImageOutput?.connections as! [AVCaptureConnection] {
+        guard let stillImageOutput = stillImageOutput else { return }
+        for connection: AVCaptureConnection in stillImageOutput.connections {
             for port: AVCaptureInput.Port in connection.inputPorts {
                 if port.mediaType == AVMediaType.video{
                     videoConnection = connection
@@ -392,7 +392,7 @@ class AutoCropCameraScanner:UIView, AVCaptureVideoDataOutputSampleBufferDelegate
         }
         weak var weakSelf = self
         
-        stillImageOutput?.captureStillImageAsynchronously(from: videoConnection!, completionHandler: {(_ imageSampleBuffer: CMSampleBuffer?, _ error: Error?) -> Void in
+        stillImageOutput.captureStillImageAsynchronously(from: videoConnection!, completionHandler: {(_ imageSampleBuffer: CMSampleBuffer?, _ error: Error?) -> Void in
             if error != nil {
                 self.captureQueue.resume()
                 return
@@ -401,7 +401,7 @@ class AutoCropCameraScanner:UIView, AVCaptureVideoDataOutputSampleBufferDelegate
             
             autoreleasepool {
                 var imageData: Data? = AVCaptureStillImageOutput.jpegStillImageNSDataRepresentation(imageSampleBuffer!)
-                let image:UIImage = UIImage(data: imageData!)!
+//                let image:UIImage = UIImage(data: imageData!)!
                 var enhancedImage = CIImage(data: imageData!, options: convertToOptionalCIImageOptionDictionary([convertFromCIImageOption(CIImageOption.colorSpace): NSNull()]))
                 imageData = nil
                 if weakSelf?.cameraViewType == CameraViewType.blackAndWhite {
@@ -496,7 +496,7 @@ public extension DispatchQueue {
      - parameter token: A unique reverse DNS style name such as com.vectorform.<name> or a GUID
      - parameter block: Block to execute once
      */
-    public class func once(token: String, block:()->Void) {
+    class func once(token: String, block:()->Void) {
         objc_sync_enter(self); defer { objc_sync_exit(self) }
         
         if _onceTracker.contains(token) {
