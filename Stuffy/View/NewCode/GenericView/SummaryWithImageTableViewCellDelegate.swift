@@ -56,10 +56,9 @@ class SummaryWithImageTableViewCell: UITableViewCell {
         datePurchasedLabel.text = dateFormatter.string(from: item.purchaseDate ?? Date()).uppercased()
     }
     fileprivate func setImage(_ item: Item) {
-        if let elements = item.images,
-            let element = elements[0] as? Image {
-            itemImageView.image = element.image
-        }
+        guard let obj = item.images?.firstObject as? Image,
+            let image = obj.image else { return }
+        itemImageView.image = image
     }
     fileprivate func setIsFavorite() {
         if isFavorite {
