@@ -50,6 +50,7 @@ class AddItemTableViewController: UITableViewController {
     //
     override func viewDidLoad() {
         super.viewDidLoad()
+        catNameLabel.text = tempItem.category?.name ?? "Select Category"
         setupViewFromItem()
         setupDateFieldKeyboards()
         hideKeyboard()

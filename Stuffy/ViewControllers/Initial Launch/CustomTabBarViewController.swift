@@ -45,8 +45,41 @@ class CustomTabBarViewController: UITabBarController, CustomTabBarViewMainDelega
     }
     /// Center addButton is pressed, so this func presents the addItemVC modely
     func addItemTabPressed() {
-        // TODO - Do Model segue here to addItem screen
-        //present(AddItemTableViewController(), animated: true)
         performSegue(withIdentifier: "toAddItemVC", sender: self)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toAddItemVC" {
+            guard let destinationNav = segue.destination as? UINavigationController,
+                let destinationVC = destinationNav.viewControllers.first as? AddItemTableViewController else { return }
+            if let myStuffVC = UIApplication.topViewController() as? MyStuffViewController {
+                destinationVC.tempItem.category = myStuffVC.category
+            }
+        }
+    }
+}
+
+extension UIApplication {
+    class func topViewController(base: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+
+        if let nav = base as? UINavigationController {
+            return topViewController(base: nav.visibleViewController)
+        }
+
+        if let tab = base as? UITabBarController {
+            let moreNavigationController = tab.moreNavigationController
+
+            if let top = moreNavigationController.topViewController, top.view.window != nil {
+                return topViewController(base: top)
+            } else if let selected = tab.selectedViewController {
+                return topViewController(base: selected)
+            }
+        }
+
+        if let presented = base?.presentedViewController {
+            return topViewController(base: presented)
+        }
+
+        return base
     }
 }
