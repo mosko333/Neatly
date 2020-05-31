@@ -68,7 +68,7 @@ class CategoriesViewController: UIViewController {
         // Set logo on Nav Bar
         if isHomeVC {
             let logo = UIImageView(image: #imageLiteral(resourceName: "xcaBannerNeatly"))
-            logo.contentMode = .scaleAspectFit // set imageview's content mode
+            logo.contentMode = .scaleAspectFit // set imageView's content mode
             self.navigationItem.titleView = logo
             addCatViewHightConstraint.constant = 61
             addCatBtnHightConstraint.constant = 0
@@ -105,9 +105,8 @@ class CategoriesViewController: UIViewController {
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             if segue.identifier == "MyStuffSegue" {
                 guard let indexPath = tableView.indexPathForSelectedRow else { return }
-                let category =  CategoryController.shared.categories[indexPath.row]
                 if let destinationVC = segue.destination as? MyStuffViewController {
-                    destinationVC.category = category
+                    destinationVC.categoryIndex = indexPath.row
                 }
             }
         }    
@@ -170,6 +169,7 @@ extension CategoriesViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 }
+
 extension CategoriesViewController: CategoryTableViewCellDelegate {
     func categoryFavorited(_ cell: CategoryTableViewCell) {
         guard let indexPath = tableView.indexPath(for: cell) else { return }
@@ -178,7 +178,6 @@ extension CategoriesViewController: CategoryTableViewCellDelegate {
         CoreDataStack.save()
     }
 }
-
 
 extension CategoriesViewController: UITextFieldDelegate {
     

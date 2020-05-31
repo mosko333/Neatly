@@ -13,6 +13,7 @@ class MyStuffViewController: UIViewController {
     //
     // MARK: - Properties
     //
+    var categoryIndex: Int = 0
     var category: Category?
     var items: [Item] = []
     //
@@ -25,6 +26,7 @@ class MyStuffViewController: UIViewController {
     //
     override func viewDidLoad() {
         super.viewDidLoad()
+        category = CategoryController.shared.categories[categoryIndex]
         tableView.delegate = self
         tableView.dataSource = self
         navigationItem.title = category?.name
@@ -32,6 +34,7 @@ class MyStuffViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        category = CategoryController.shared.categories[categoryIndex]
         addTableViewBottomSpace()
         unpackItems()
         setupView()
@@ -55,6 +58,7 @@ class MyStuffViewController: UIViewController {
             emptyItemView.isHidden = true
         }
     }
+
     fileprivate func unpackItems() {
         guard let elements = category?.items else { return }
         var unpackedItems: [Item] = []
