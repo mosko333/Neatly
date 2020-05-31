@@ -452,13 +452,14 @@ extension AddItemTableViewController: UINavigationControllerDelegate, UIImagePic
 
 extension AddItemTableViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        summeryPageController.numberOfPages = tempItem.images.count
-        return tempItem.images.count
+        let numOfPages = max(tempItem.images.count, 1)
+        summeryPageController.numberOfPages = numOfPages
+        return numOfPages
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "summeryCell", for: indexPath) as! SummeryItemImageCollectionViewCell
-        cell.itemImage.image = tempItem.images[indexPath.row]
+        cell.itemImage.image = tempItem.images.isEmpty ? UIImage(named: "xcaCameraCellDefaultImage") : tempItem.images[indexPath.row]
         cell.delegate = self
         return cell
     }
