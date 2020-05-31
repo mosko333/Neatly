@@ -547,7 +547,7 @@
                                             <outlet property="itemImageView" destination="nEp-Pp-712" id="rmB-0i-d0C"/>
                                             <outlet property="itemNameLabel" destination="dCZ-LP-coh" id="pVl-FA-IKm"/>
                                             <outlet property="shadowView" destination="tHG-Hh-K0Q" id="503-ZY-gA5"/>
-                                            <segue destination="hc4-S7-Gf0" kind="presentation" identifier="toItemSummery" id="K2D-ew-xr7"/>
+                                            <segue destination="hc4-S7-Gf0" kind="presentation" identifier="toItemSummery" modalPresentationStyle="fullScreen" id="K2D-ew-xr7"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -2031,7 +2031,7 @@
                                             <outlet property="itemImageView" destination="3bz-pM-mOf" id="ye5-qg-cyJ"/>
                                             <outlet property="itemNameLabel" destination="Rmv-3e-fEz" id="1sQ-Xc-Cuq"/>
                                             <outlet property="shadowView" destination="Mz3-6C-vyI" id="agX-t9-WcJ"/>
-                                            <segue destination="hc4-S7-Gf0" kind="presentation" identifier="toItemSummery" id="pYD-0V-r23"/>
+                                            <segue destination="hc4-S7-Gf0" kind="presentation" identifier="toItemSummery" modalPresentationStyle="fullScreen" id="pYD-0V-r23"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -3518,7 +3518,7 @@
                                             <outlet property="itemImageView" destination="ZgD-fH-5fi" id="ezX-dc-m9B"/>
                                             <outlet property="itemNameLabel" destination="65i-Av-Fdj" id="Wtu-15-WrP"/>
                                             <outlet property="shadowView" destination="1Tz-PN-pff" id="uIU-JI-YIs"/>
-                                            <segue destination="hc4-S7-Gf0" kind="presentation" identifier="toItemSummery" id="9Ct-KD-ID6"/>
+                                            <segue destination="hc4-S7-Gf0" kind="presentation" identifier="toItemSummery" modalPresentationStyle="fullScreen" id="9Ct-KD-ID6"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -3646,7 +3646,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="4Vr-NR-Pf0"/>
+        <segue reference="9Ct-KD-ID6"/>
         <segue reference="tYK-G3-icc"/>
         <segue reference="Eq9-lm-2sj"/>
         <segue reference="EBr-HT-jfd"/>
