@@ -52,7 +52,7 @@ class CategoriesViewController: UIViewController {
         // Setup status bar to lightContent because it's changed to dark in the searchVC
         // We set the background colors alpha to 0 because otherwise it's translucent
         
-        if CategoryController.shared.categories.count == 1 {
+        if CategoryController.shared.categories.count == 1 && CategoryController.shared.categories.first?.items?.firstObject == nil {
             emptyCategoryView.isHidden = false
         } else {
             emptyCategoryView.isHidden = true
